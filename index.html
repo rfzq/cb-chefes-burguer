@@ -3,215 +3,815 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CB CHEFE'S BURGUER — São José do Rio Preto</title>
+    <meta name="theme-color" content="#0b0b0c">
+    <meta name="description" content="CB CHEFE'S BURGUER em São José do Rio Preto (Parque Res. J. Macedo). Hambúrguer artesanal, porções, happy hour e menu infantil. Peça pelo WhatsApp.">
+    <title>CB CHEFE'S BURGUER — Hambúrguer Artesanal em São José do Rio Preto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-main: #0b0b0c;
+            --bg-surface: #141417;
+            --bg-surface-elevated: #1b1b20;
+            --text-primary: #f7f7f9;
+            --text-secondary: #a8a8b3;
+            --accent: #e05a17;
+            --accent-hover: #f26822;
+            --accent-soft: rgba(224, 90, 23, 0.16);
+            --border-subtle: rgba(255, 255, 255, 0.09);
+            --border-strong: rgba(255, 255, 255, 0.18);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+        }
+
         * {
             box-sizing: border-box;
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #0c0c0e;
-            color: #f5f5f7;
+            font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.5;
+            padding-bottom: 84px;
         }
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-            padding: 18px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            background-color: #121216;
+
+        @media (min-width: 768px) {
+            body {
+                padding-bottom: 0;
+            }
         }
-        header h1 {
-            margin: 0;
-            font-size: 20px;
-            letter-spacing: 0.5px;
-        }
-        .button {
-            background-color: #e05a17;
-            color: #fff;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-        .button:hover {
-            background-color: #f06722;
-        }
-        .button-secondary {
-            background-color: #1c1c21;
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-            cursor: pointer;
-            transition: border-color 0.2s ease, background-color 0.2s ease;
-        }
-        .button-secondary:hover {
-            background-color: #25252c;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
+
         .container {
-            max-width: 1020px;
+            width: 100%;
+            max-width: 1120px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        .hero {
-            padding: 36px 0 32px;
+
+        /* Cabeçalho fixo */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(11, 11, 12, 0.88);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
         }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            min-height: 68px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .brand-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #e05a17, #ff8547);
+            display: grid;
+            place-items: center;
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 20px;
+            letter-spacing: 1px;
+            color: #ffffff;
+            flex-shrink: 0;
+        }
+
+        .brand-name {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 24px;
+            letter-spacing: 1.2px;
+            line-height: 1;
+        }
+
+        .nav-links {
+            display: none;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-surface-elevated);
+            color: var(--text-primary);
+            border-color: var(--border-strong);
+        }
+
+        .btn-secondary:hover {
+            background-color: #24242b;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-sm {
+            padding: 8px 14px;
+            font-size: 13px;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 44px 0 36px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 28px;
+            align-items: center;
+        }
+
+        @media (min-width: 900px) {
+            .hero {
+                grid-template-columns: 1.35fr 0.85fr;
+                padding: 64px 0 48px;
+            }
+        }
+
         .badge {
-            display: inline-block;
-            background-color: rgba(224, 90, 23, 0.18);
-            color: #ff9a62;
-            border: 1px solid rgba(224, 90, 23, 0.35);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--accent-soft);
+            color: #ff9c69;
+            border: 1px solid rgba(224, 90, 23, 0.38);
             padding: 6px 14px;
             border-radius: 999px;
-            font-size: 13px;
-            font-weight: bold;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
             margin-bottom: 18px;
         }
-        .hero h2 {
-            font-size: 40px;
-            line-height: 1.1;
+
+        .hero h1 {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: clamp(46px, 8vw, 74px);
+            line-height: 0.96;
+            letter-spacing: 1px;
             margin: 0 0 16px;
-            max-width: 18ch;
         }
-        .hero p {
-            color: #b3b3bc;
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-lead {
+            color: var(--text-secondary);
             font-size: 17px;
-            line-height: 1.5;
             max-width: 54ch;
             margin: 0 0 24px;
         }
-        .actions {
+
+        .hero-actions {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
+            margin-bottom: 28px;
         }
-        section {
-            padding: 32px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+        .highlights-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 600;
         }
-        section h2 {
-            font-size: 26px;
-            margin: 0 0 8px;
+
+        .highlights-strip span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
-        .section-note {
-            color: #b3b3bc;
+
+        .hero-card {
+            background: linear-gradient(160deg, #19191e 0%, #111114 100%);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+        }
+
+        .hero-card-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #ff9c69;
+            margin-bottom: 8px;
+        }
+
+        .hero-card h2 {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 32px;
+            letter-spacing: 0.8px;
+            margin: 0 0 10px;
+        }
+
+        .hero-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
             margin: 0 0 20px;
         }
-        .grid {
+
+        .meta-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            font-size: 14px;
+        }
+
+        .meta-list li {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .meta-list strong {
+            color: var(--text-primary);
+        }
+
+        .meta-list span {
+            color: var(--text-secondary);
+            text-align: right;
+        }
+
+        /* Seções */
+        section {
+            padding: 44px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .section-header {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .section-header h2 {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 38px;
+            letter-spacing: 0.8px;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            margin: 0;
+            max-width: 58ch;
+        }
+
+        /* Filtros do cardápio */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .filter-btn {
+            background-color: var(--bg-surface);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--border-strong);
+        }
+
+        .filter-btn.active {
+            background-color: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
+
+        /* Grade de itens */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 16px;
         }
-        .card {
-            background-color: #141417;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+
+        .menu-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 16px;
+            transition: border-color 0.2s ease, transform 0.2s ease;
         }
-        .card h3 {
-            margin: 0 0 8px;
-            font-size: 19px;
+
+        .menu-card:hover {
+            border-color: rgba(224, 90, 23, 0.45);
+            transform: translateY(-2px);
         }
-        .card p {
+
+        .menu-card.hidden {
+            display: none;
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .card-tag {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #ff9c69;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .menu-card h3 {
             margin: 0;
-            color: #b3b3bc;
-            line-height: 1.45;
+            font-size: 18px;
+            font-weight: 700;
         }
-        .location-box {
-            background-color: #141417;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+
+        .price-tag {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
+            background-color: var(--bg-surface-elevated);
+            border: 1px solid var(--border-subtle);
+            padding: 4px 10px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .menu-card p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        /* Diferenciais */
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .perk-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
             padding: 20px;
         }
-        .address {
-            margin: 0 0 16px;
-            line-height: 1.5;
+
+        .perk-card h3 {
+            margin: 0 0 6px;
+            font-size: 16px;
         }
-        footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 24px 20px 36px;
-            text-align: center;
-            color: #b3b3bc;
+
+        .perk-card p {
+            margin: 0;
+            color: var(--text-secondary);
             font-size: 14px;
+        }
+
+        /* Localização */
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 820px) {
+            .location-grid {
+                grid-template-columns: 1.2fr 0.8fr;
+            }
+        }
+
+        .location-box {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 24px;
+        }
+
+        .address-text {
+            font-size: 15px;
+            margin: 0 0 18px;
+            color: var(--text-primary);
+        }
+
+        .copy-feedback {
+            font-size: 13px;
+            color: #ff9c69;
+            min-height: 20px;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        /* Rodapé */
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 28px 0;
+            color: var(--text-secondary);
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* Barra fixa inferior no mobile */
+        .mobile-sticky-cta {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 60;
+            background-color: rgba(20, 20, 23, 0.96);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid var(--border-strong);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-sticky-cta {
+                display: none;
+            }
+        }
+
+        .mobile-sticky-info {
+            font-size: 12px;
+            line-height: 1.25;
+        }
+
+        .mobile-sticky-info strong {
+            display: block;
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+
+        .mobile-sticky-info span {
+            color: var(--text-secondary);
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>CB CHEFE'S BURGUER</h1>
-        <a class="button" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Gostaria%20de%20fazer%20um%20pedido%20no%20CB%20Chefe%27s%20Burguer." target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#topo" id="topo">
+                <span class="brand-mark">CB</span>
+                <span class="brand-name">CB CHEFE'S BURGUER</span>
+            </a>
+
+            <nav class="nav-links" aria-label="Navegação principal">
+                <a href="#cardapio">Cardápio</a>
+                <a href="#experiencia">Experiência</a>
+                <a href="#localizacao">Localização</a>
+            </nav>
+
+            <a class="btn btn-primary btn-sm" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Gostaria%20de%20fazer%20um%20pedido%20no%20CB%20Chefe%27s%20Burguer." target="_blank" rel="noopener noreferrer">
+                Pedir no WhatsApp
+            </a>
+        </div>
     </header>
 
     <main class="container">
         <section class="hero" style="border-top: none;">
-            <div class="badge">&#9733; 5,0 (90 AVALIAÇÕES) &bull; PARQUE RES. J. MACEDO</div>
-            <h2>Hambúrguer artesanal no ponto certo em Rio Preto.</h2>
-            <p>Opções artesanais, porções caprichadas, happy hour, menu infantil e estacionamento no local. Média de R$ 40–60 por pessoa.</p>
-            <div class="actions">
-                <a class="button" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido." target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
-                <a class="button-secondary" href="#destaques">Ver destaques</a>
+            <div>
+                <div class="badge">&#9733; 5,0 (90 avaliações) &bull; São José do Rio Preto</div>
+                <h1>ARTESANAL DE VERDADE, <span>NO PONTO CERTO.</span></h1>
+                <p class="hero-lead">
+                    Hambúrgueres artesanais preparados na hora, porções caprichadas, clima de happy hour, menu infantil e estacionamento no local no Parque Res. J. Macedo.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido." target="_blank" rel="noopener noreferrer">
+                        Fazer pedido agora
+                    </a>
+                    <a class="btn btn-secondary" href="#cardapio">
+                        Explorar cardápio
+                    </a>
+                </div>
+
+                <div class="highlights-strip">
+                    <span>&#10003; Média R$ 40–60 / pessoa</span>
+                    <span>&#10003; Happy hour e porções</span>
+                    <span>&#10003; Menu infantil</span>
+                    <span>&#10003; Estacionamento no local</span>
+                </div>
+            </div>
+
+            <aside class="hero-card" aria-label="Resumo de atendimento">
+                <div class="hero-card-label">Atendimento direto</div>
+                <h2>Peça sem complicação</h2>
+                <p>Tire dúvidas, monte seu pedido ou combine retirada/entrega direto com a equipe no WhatsApp.</p>
+                <ul class="meta-list">
+                    <li>
+                        <strong>WhatsApp</strong>
+                        <span>(17) 99662-4287</span>
+                    </li>
+                    <li>
+                        <strong>Bairro</strong>
+                        <span>Parque Res. J. Macedo</span>
+                    </li>
+                    <li>
+                        <strong>Faixa de preço</strong>
+                        <span>R$ 40–60 por pessoa</span>
+                    </li>
+                </ul>
+            </aside>
+        </section>
+
+        <section id="cardapio">
+            <div class="section-header">
+                <h2>Cardápio em Destaque</h2>
+                <p>Filtre por categoria e clique em pedir para abrir o WhatsApp com o item já selecionado. Atualize os valores conforme o menu vigente.</p>
+            </div>
+
+            <div class="filter-bar" role="tablist" aria-label="Filtrar cardápio">
+                <button class="filter-btn active" type="button" data-filter="todos">Todos</button>
+                <button class="filter-btn" type="button" data-filter="burgers">Burgers</button>
+                <button class="filter-btn" type="button" data-filter="porcoes">Porções &amp; Happy Hour</button>
+                <button class="filter-btn" type="button" data-filter="infantil">Infantil</button>
+            </div>
+
+            <div class="menu-grid">
+                <article class="menu-card" data-category="burgers">
+                    <div>
+                        <span class="card-tag">Burger Artesanal</span>
+                        <div class="card-top">
+                            <h3>CB Clássico da Casa</h3>
+                            <span class="price-tag">Sob consulta</span>
+                        </div>
+                        <p>Blend artesanal grelhado no ponto, queijo derretido e molho especial da casa no pão macio.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span style="font-size: 12px; color: var(--text-secondary);">Ponto ajustável</span>
+                        <a class="btn btn-secondary btn-sm" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Gostaria%20de%20pedir%20o%20CB%20Cl%C3%A1ssico%20da%20Casa." target="_blank" rel="noopener noreferrer">
+                            Pedir item
+                        </a>
+                    </div>
+                </article>
+
+                <article class="menu-card" data-category="burgers">
+                    <div>
+                        <span class="card-tag">Burger Artesanal</span>
+                        <div class="card-top">
+                            <h3>Especial do Chefe</h3>
+                            <span class="price-tag">Sob consulta</span>
+                        </div>
+                        <p>Combinação marcante de carne artesanal, finalização caprichada e sabor equilibrado do início ao fim.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span style="font-size: 12px; color: var(--text-secondary);">Mais pedido</span>
+                        <a class="btn btn-secondary btn-sm" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Gostaria%20de%20pedir%20o%20Especial%20do%20Chefe." target="_blank" rel="noopener noreferrer">
+                            Pedir item
+                        </a>
+                    </div>
+                </article>
+
+                <article class="menu-card" data-category="porcoes">
+                    <div>
+                        <span class="card-tag">Porções &amp; Happy Hour</span>
+                        <div class="card-top">
+                            <h3>Porção da Casa</h3>
+                            <span class="price-tag">Sob consulta</span>
+                        </div>
+                        <p>Porção bem servida e crocante para dividir com amigos durante o happy hour ou acompanhar o lanche.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span style="font-size: 12px; color: var(--text-secondary);">Ideal para compartilhar</span>
+                        <a class="btn btn-secondary btn-sm" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20sobre%20a%20Por%C3%A7%C3%A3o%20da%20Casa." target="_blank" rel="noopener noreferrer">
+                            Pedir item
+                        </a>
+                    </div>
+                </article>
+
+                <article class="menu-card" data-category="infantil">
+                    <div>
+                        <span class="card-tag">Menu Infantil</span>
+                        <div class="card-top">
+                            <h3>Combo Kids</h3>
+                            <span class="price-tag">Sob consulta</span>
+                        </div>
+                        <p>Opção pensada para as crianças, com porção na medida certa para curtir em família sem pressa.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span style="font-size: 12px; color: var(--text-secondary);">Para a família</span>
+                        <a class="btn btn-secondary btn-sm" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Gostaria%20de%20ver%20as%20op%C3%A7%C3%B5es%20do%20Menu%20Infantil." target="_blank" rel="noopener noreferrer">
+                            Pedir item
+                        </a>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <section id="destaques">
-            <h2>Destaques do Menu</h2>
-            <p class="section-note">Ajuste preços exatos e demais burgers do cardápio conforme o menu atual da casa.</p>
-            <div class="grid">
-                <article class="card">
-                    <h3>Clássico da Casa</h3>
-                    <p>Blend artesanal grelhado no ponto, queijo derretido e molho especial no pão macio.</p>
-                </article>
-                <article class="card">
-                    <h3>Porções &amp; Happy Hour</h3>
-                    <p>Porções caprichadas para acompanhar o happy hour e aproveitar com a turma.</p>
-                </article>
-                <article class="card">
+        <section id="experiencia">
+            <div class="section-header">
+                <h2>Por que escolher o CB Chefe's</h2>
+                <p>Ambiente acolhedor para ir com a família, reunir a galera no happy hour ou pedir direto do celular.</p>
+            </div>
+
+            <div class="perks-grid">
+                <div class="perk-card">
+                    <h3>Avaliação 5,0</h3>
+                    <p>Nota máxima com 90 avaliações, refletindo consistência no preparo e atendimento próximo.</p>
+                </div>
+                <div class="perk-card">
+                    <h3>Happy Hour &amp; Porções</h3>
+                    <p>Boa pedida para relaxar após o expediente com porções caprichadas e clima descontraído.</p>
+                </div>
+                <div class="perk-card">
                     <h3>Menu Infantil</h3>
-                    <p>Opções pensadas para as crianças, com conforto e estacionamento no local.</p>
-                </article>
+                    <p>Opções adaptadas para os pequenos, tornando o passeio mais prático para pais e mães.</p>
+                </div>
+                <div class="perk-card">
+                    <h3>Estacionamento no Local</h3>
+                    <p>Mais comodidade ao chegar de carro na região do Parque Res. J. Macedo.</p>
+                </div>
             </div>
         </section>
 
         <section id="localizacao">
-            <h2>Localização e Atendimento</h2>
-            <p class="section-note">WhatsApp: (17) 99662-4287</p>
-            <div class="location-box">
-                <p class="address"><strong>Endereço:</strong> Av. José Piedade, 2051 - Sl 02- Pq - Parque Res. J. Macedo, São José do Rio Preto - SP, 15040-667</p>
-                <div class="actions">
-                    <a class="button" href="https://www.google.com/maps/search/?api=1&query=Av.%20Jos%C3%A9%20Piedade%2C%202051%20-%20Sl%2002-%20Pq%20-%20Parque%20Res.%20J.%20Macedo%2C%20S%C3%A3o%20Jos%C3%A9%20do%20Rio%20Preto%20-%20SP%2C%2015040-667" target="_blank" rel="noopener noreferrer">Abrir no Google Maps</a>
-                    <a class="button-secondary" href="https://wa.me/5517996624287" target="_blank" rel="noopener noreferrer">Chamar (17) 99662-4287</a>
+            <div class="section-header">
+                <h2>Localização e Contato</h2>
+                <p>Venha visitar ou fale direto pelo WhatsApp para tirar dúvidas e fazer seu pedido.</p>
+            </div>
+
+            <div class="location-grid">
+                <div class="location-box">
+                    <p class="address-text">
+                        <strong>Endereço:</strong><br>
+                        Av. José Piedade, 2051 - Sl 02- Pq - Parque Res. J. Macedo, São José do Rio Preto - SP, 15040-667
+                    </p>
+
+                    <div class="hero-actions" style="margin-bottom: 0;">
+                        <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Av.%20Jos%C3%A9%20Piedade%2C%202051%20-%20Sl%2002-%20Pq%20-%20Parque%20Res.%20J.%20Macedo%2C%20S%C3%A3o%20Jos%C3%A9%20do%20Rio%20Preto%20-%20SP%2C%2015040-667" target="_blank" rel="noopener noreferrer">
+                            Abrir no Google Maps
+                        </a>
+                        <button class="btn btn-secondary" type="button" id="copy-address-btn">
+                            Copiar endereço
+                        </button>
+                    </div>
+                    <div class="copy-feedback" id="copy-feedback" aria-live="polite"></div>
+                </div>
+
+                <div class="location-box">
+                    <p class="address-text">
+                        <strong>Atendimento WhatsApp:</strong><br>
+                        (17) 99662-4287
+                    </p>
+                    <p style="color: var(--text-secondary); font-size: 14px; margin: 0 0 18px;">
+                        Média de R$ 40–60 por pessoa. Ideal para pedidos rápidos e informações do dia.
+                    </p>
+                    <a class="btn btn-secondary" style="width: 100%;" href="https://wa.me/5517996624287" target="_blank" rel="noopener noreferrer">
+                        Chamar (17) 99662-4287
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        CB CHEFE'S BURGUER &bull; Av. José Piedade, 2051 - Sl 02- Pq - Parque Res. J. Macedo, São José do Rio Preto - SP, 15040-667
+        <div class="container">
+            CB CHEFE'S BURGUER &bull; Av. José Piedade, 2051 - Sl 02- Pq - Parque Res. J. Macedo, São José do Rio Preto - SP, 15040-667
+        </div>
     </footer>
 
+    <div class="mobile-sticky-cta">
+        <div class="mobile-sticky-info">
+            <strong>CB CHEFE'S BURGUER</strong>
+            <span>(17) 99662-4287</span>
+        </div>
+        <a class="btn btn-primary btn-sm" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20no%20CB%20Chefe%27s%20Burguer." target="_blank" rel="noopener noreferrer">
+            Pedir agora
+        </a>
+    </div>
+
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach((link) => {
-            link.addEventListener("click", (event) => {
-                const targetId = link.getAttribute("href");
-                const target = document.querySelector(targetId);
-                if (target) {
-                    event.preventDefault();
-                    target.scrollIntoView({ behavior: "smooth" });
-                }
+        // Filtro de categorias do cardápio
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const menuCards = document.querySelectorAll(".menu-card");
+
+        filterButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const filter = button.getAttribute("data-filter");
+
+                filterButtons.forEach((btn) => btn.classList.remove("active"));
+                button.classList.add("active");
+
+                menuCards.forEach((card) => {
+                    const category = card.getAttribute("data-category");
+                    const shouldShow = filter === "todos" || category === filter;
+                    card.classList.toggle("hidden", !shouldShow);
+                });
             });
         });
+
+        // Copiar endereço com feedback visual
+        const copyBtn = document.getElementById("copy-address-btn");
+        const copyFeedback = document.getElementById("copy-feedback");
+        const fullAddress = "Av. José Piedade, 2051 - Sl 02- Pq - Parque Res. J. Macedo, São José do Rio Preto - SP, 15040-667";
+
+        if (copyBtn && copyFeedback) {
+            copyBtn.addEventListener("click", async () => {
+                try {
+                    await navigator.clipboard.writeText(fullAddress);
+                    copyFeedback.textContent = "Endereço copiado para a área de transferência.";
+                } catch (err) {
+                    copyFeedback.textContent = "Não foi possível copiar automaticamente. Selecione o endereço acima.";
+                }
+            });
+        }
     </script>
 </body>
 </html>

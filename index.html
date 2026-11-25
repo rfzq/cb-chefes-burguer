@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0b0b0c">
+    <meta name="theme-color" content="#09090b">
     <meta name="description" content="CB CHEFE'S BURGUER em São José do Rio Preto (Parque Res. J. Macedo). Hambúrguer artesanal, porções, happy hour e menu infantil. Peça pelo WhatsApp.">
-    <title>CB CHEFE'S BURGUER — Hambúrguer Artesanal em São José do Rio Preto</title>
+    <title>CB CHEFE'S BURGUER — Hambúrguer Artesanal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #0b0b0c;
-            --bg-surface: #141417;
-            --bg-surface-elevated: #1b1b20;
-            --text-primary: #f7f7f9;
-            --text-secondary: #a8a8b3;
+            --bg-main: #09090b;
+            --bg-surface: #121216;
+            --bg-surface-elevated: #19191f;
+            --text-primary: #f5f5f7;
+            --text-secondary: #a6a6b2;
             --accent: #e05a17;
             --accent-hover: #f26822;
             --accent-soft: rgba(224, 90, 23, 0.16);
             --border-subtle: rgba(255, 255, 255, 0.09);
-            --border-strong: rgba(255, 255, 255, 0.18);
+            --border-strong: rgba(255, 255, 255, 0.2);
             --radius-sm: 8px;
             --radius-md: 14px;
             --radius-lg: 20px;
@@ -37,10 +37,13 @@
         body {
             margin: 0;
             font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-main);
+            background:
+                radial-gradient(circle at 82% 28%, rgba(224, 90, 23, 0.16), transparent 42%),
+                var(--bg-main);
             color: var(--text-primary);
             line-height: 1.5;
             padding-bottom: 84px;
+            overflow-x: hidden;
         }
 
         @media (min-width: 768px) {
@@ -51,17 +54,17 @@
 
         .container {
             width: 100%;
-            max-width: 1120px;
+            max-width: 1140px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Cabeçalho fixo */
+        /* Cabeçalho */
         .site-header {
             position: sticky;
             top: 0;
             z-index: 50;
-            background-color: rgba(11, 11, 12, 0.88);
+            background-color: rgba(9, 9, 11, 0.86);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-subtle);
         }
@@ -71,7 +74,7 @@
             align-items: center;
             justify-content: space-between;
             gap: 16px;
-            min-height: 68px;
+            min-height: 72px;
         }
 
         .brand {
@@ -82,31 +85,46 @@
             color: var(--text-primary);
         }
 
-        .brand-mark {
-            width: 36px;
-            height: 36px;
+        .brand-badge {
+            width: 38px;
+            height: 38px;
             border-radius: 10px;
-            background: linear-gradient(135deg, #e05a17, #ff8547);
+            background-color: var(--bg-surface-elevated);
+            border: 1px solid var(--border-strong);
             display: grid;
             place-items: center;
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 20px;
-            letter-spacing: 1px;
-            color: #ffffff;
+            font-family: "Anton", sans-serif;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            color: var(--accent);
             flex-shrink: 0;
         }
 
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.05;
+        }
+
         .brand-name {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 24px;
-            letter-spacing: 1.2px;
-            line-height: 1;
+            font-family: "Anton", sans-serif;
+            font-size: 20px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .brand-sub {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
         }
 
         .nav-links {
             display: none;
             align-items: center;
-            gap: 24px;
+            gap: 28px;
         }
 
         .nav-links a {
@@ -117,8 +135,9 @@
             transition: color 0.2s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--text-primary);
+        .nav-links a:hover,
+        .nav-links a.active-link {
+            color: var(--accent);
         }
 
         @media (min-width: 768px) {
@@ -133,7 +152,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 12px 20px;
+            padding: 12px 22px;
             border-radius: var(--radius-sm);
             font-weight: 700;
             font-size: 14px;
@@ -156,6 +175,18 @@
             background-color: var(--accent-hover);
         }
 
+        .btn-ghost {
+            background-color: transparent;
+            color: var(--text-primary);
+            border-color: transparent;
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        .btn-ghost:hover {
+            color: var(--accent);
+        }
+
         .btn-secondary {
             background-color: var(--bg-surface-elevated);
             color: var(--text-primary);
@@ -163,8 +194,7 @@
         }
 
         .btn-secondary:hover {
-            background-color: #24242b;
-            border-color: rgba(255, 255, 255, 0.3);
+            background-color: #23232b;
         }
 
         .btn-sm {
@@ -172,162 +202,169 @@
             font-size: 13px;
         }
 
-        /* Hero */
+        /* Hero principal no estilo da referência */
         .hero {
-            padding: 44px 0 36px;
+            padding: 36px 0 48px;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 28px;
+            gap: 32px;
             align-items: center;
         }
 
-        @media (min-width: 900px) {
+        @media (min-width: 920px) {
             .hero {
-                grid-template-columns: 1.35fr 0.85fr;
-                padding: 64px 0 48px;
+                grid-template-columns: 1.05fr 0.95fr;
+                padding: 52px 0 60px;
             }
         }
 
-        .badge {
+        .hero-kicker {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background-color: var(--accent-soft);
-            color: #ff9c69;
-            border: 1px solid rgba(224, 90, 23, 0.38);
-            padding: 6px 14px;
-            border-radius: 999px;
             font-size: 12px;
             font-weight: 700;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
-            margin-bottom: 18px;
+            color: #ff9c69;
+            margin-bottom: 14px;
         }
 
         .hero h1 {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: clamp(46px, 8vw, 74px);
-            line-height: 0.96;
-            letter-spacing: 1px;
-            margin: 0 0 16px;
+            font-family: "Anton", sans-serif;
+            font-size: clamp(48px, 7.2vw, 78px);
+            line-height: 0.98;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin: 0 0 18px;
         }
 
-        .hero h1 span {
-            color: var(--accent);
-        }
-
-        .hero-lead {
+        .hero-desc {
             color: var(--text-secondary);
-            font-size: 17px;
-            max-width: 54ch;
-            margin: 0 0 24px;
+            font-size: 15px;
+            max-width: 48ch;
+            margin: 0 0 26px;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 28px;
-        }
-
-        .highlights-strip {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px 18px;
-            color: var(--text-secondary);
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        .highlights-strip span {
-            display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 10px;
+            margin-bottom: 34px;
         }
 
-        .hero-card {
-            background: linear-gradient(160deg, #19191e 0%, #111114 100%);
-            border: 1px solid var(--border-strong);
+        /* Faixa de miniaturas */
+        .thumbs-row {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(64px, 86px));
+            gap: 12px;
+            align-items: center;
+        }
+
+        .thumb-btn {
+            position: relative;
+            background-color: var(--bg-surface);
+            border: 1.5px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 6px;
+            cursor: pointer;
+            transition: transform 0.15s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            display: grid;
+            place-items: center;
+        }
+
+        .thumb-btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--border-strong);
+        }
+
+        .thumb-btn.active {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(224, 90, 23, 0.28);
+        }
+
+        .thumb-btn.active::after {
+            content: "";
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid var(--accent);
+        }
+
+        /* Destaque visual à direita */
+        .showcase-panel {
+            position: relative;
+            background: radial-gradient(circle at 50% 45%, rgba(224, 90, 23, 0.22), rgba(18, 18, 22, 0.4) 68%, transparent 100%);
+            border: 1px solid var(--border-subtle);
             border-radius: var(--radius-lg);
             padding: 24px;
-        }
-
-        .hero-card-label {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: #ff9c69;
-            margin-bottom: 8px;
-        }
-
-        .hero-card h2 {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 32px;
-            letter-spacing: 0.8px;
-            margin: 0 0 10px;
-        }
-
-        .hero-card p {
-            color: var(--text-secondary);
-            font-size: 14px;
-            margin: 0 0 20px;
-        }
-
-        .meta-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: grid;
-            gap: 12px;
-            font-size: 14px;
-        }
-
-        .meta-list li {
             display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            padding-top: 12px;
-            border-top: 1px solid var(--border-subtle);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 360px;
         }
 
-        .meta-list strong {
-            color: var(--text-primary);
+        .showcase-svg {
+            width: 100%;
+            max-width: 390px;
+            height: auto;
+            filter: drop-shadow(0 24px 36px rgba(0, 0, 0, 0.75));
+            transition: transform 0.25s ease;
         }
 
-        .meta-list span {
+        .showcase-caption {
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        .showcase-title {
+            font-family: "Anton", sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .showcase-meta {
+            font-size: 13px;
             color: var(--text-secondary);
-            text-align: right;
+            margin-top: 2px;
         }
 
         /* Seções */
         section {
-            padding: 44px 0;
+            padding: 48px 0;
             border-top: 1px solid var(--border-subtle);
         }
 
-        .section-header {
+        .section-head {
             display: flex;
             flex-direction: column;
             gap: 8px;
             margin-bottom: 24px;
         }
 
-        .section-header h2 {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 38px;
-            letter-spacing: 0.8px;
+        .section-head h2 {
+            font-family: "Anton", sans-serif;
+            font-size: 36px;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
             margin: 0;
-            line-height: 1;
+            line-height: 1.05;
         }
 
-        .section-header p {
+        .section-head p {
             color: var(--text-secondary);
             margin: 0;
             max-width: 58ch;
         }
 
-        /* Filtros do cardápio */
+        /* Filtros e cardápio */
         .filter-bar {
             display: flex;
             flex-wrap: wrap;
@@ -359,10 +396,9 @@
             border-color: var(--accent);
         }
 
-        /* Grade de itens */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
             gap: 16px;
         }
 
@@ -379,7 +415,7 @@
         }
 
         .menu-card:hover {
-            border-color: rgba(224, 90, 23, 0.45);
+            border-color: rgba(224, 90, 23, 0.5);
             transform: translateY(-2px);
         }
 
@@ -387,22 +423,22 @@
             display: none;
         }
 
-        .card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 8px;
-        }
-
         .card-tag {
             font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.6px;
+            letter-spacing: 0.7px;
             color: #ff9c69;
             margin-bottom: 6px;
             display: block;
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 8px;
         }
 
         .menu-card h3 {
@@ -411,10 +447,9 @@
             font-weight: 700;
         }
 
-        .price-tag {
-            font-size: 13px;
+        .price-pill {
+            font-size: 12px;
             font-weight: 700;
-            color: var(--text-primary);
             background-color: var(--bg-surface-elevated);
             border: 1px solid var(--border-subtle);
             padding: 4px 10px;
@@ -428,7 +463,7 @@
             font-size: 14px;
         }
 
-        .card-footer {
+        .card-bottom {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -437,82 +472,66 @@
             border-top: 1px solid var(--border-subtle);
         }
 
-        /* Diferenciais */
-        .perks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 16px;
-        }
-
-        .perk-card {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-md);
-            padding: 20px;
-        }
-
-        .perk-card h3 {
-            margin: 0 0 6px;
-            font-size: 16px;
-        }
-
-        .perk-card p {
-            margin: 0;
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-
-        /* Localização */
-        .location-grid {
+        /* Sobre / Localização */
+        .info-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
         }
 
         @media (min-width: 820px) {
-            .location-grid {
+            .info-grid {
                 grid-template-columns: 1.2fr 0.8fr;
             }
         }
 
-        .location-box {
+        .info-box {
             background-color: var(--bg-surface);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-md);
             padding: 24px;
         }
 
-        .address-text {
-            font-size: 15px;
-            margin: 0 0 18px;
-            color: var(--text-primary);
+        .info-box h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
         }
 
-        .copy-feedback {
-            font-size: 13px;
-            color: #ff9c69;
+        .info-box p {
+            margin: 0 0 16px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .address-line {
+            color: var(--text-primary) !important;
+            font-size: 15px !important;
+        }
+
+        .copy-status {
             min-height: 20px;
             margin-top: 10px;
+            font-size: 13px;
             font-weight: 600;
+            color: #ff9c69;
         }
 
-        /* Rodapé */
         footer {
             border-top: 1px solid var(--border-subtle);
-            padding: 28px 0;
-            color: var(--text-secondary);
-            font-size: 13px;
+            padding: 26px 0;
             text-align: center;
+            font-size: 13px;
+            color: var(--text-secondary);
         }
 
-        /* Barra fixa inferior no mobile */
-        .mobile-sticky-cta {
+        /* Barra fixa inferior no telemóvel */
+        .mobile-bar {
             position: fixed;
             left: 0;
             right: 0;
             bottom: 0;
             z-index: 60;
-            background-color: rgba(20, 20, 23, 0.96);
+            background-color: rgba(18, 18, 22, 0.96);
             backdrop-filter: blur(12px);
             border-top: 1px solid var(--border-strong);
             padding: 10px 16px;
@@ -523,23 +542,18 @@
         }
 
         @media (min-width: 768px) {
-            .mobile-sticky-cta {
+            .mobile-bar {
                 display: none;
             }
         }
 
-        .mobile-sticky-info {
-            font-size: 12px;
-            line-height: 1.25;
-        }
-
-        .mobile-sticky-info strong {
+        .mobile-bar strong {
             display: block;
-            font-size: 14px;
-            color: var(--text-primary);
+            font-size: 13px;
         }
 
-        .mobile-sticky-info span {
+        .mobile-bar span {
+            font-size: 12px;
             color: var(--text-secondary);
         }
     </style>
@@ -548,13 +562,17 @@
     <header class="site-header">
         <div class="container header-inner">
             <a class="brand" href="#topo" id="topo">
-                <span class="brand-mark">CB</span>
-                <span class="brand-name">CB CHEFE'S BURGUER</span>
+                <span class="brand-badge">CB</span>
+                <span class="brand-text">
+                    <span class="brand-name">CB CHEFE'S</span>
+                    <span class="brand-sub">BURGUER SHOP</span>
+                </span>
             </a>
 
             <nav class="nav-links" aria-label="Navegação principal">
-                <a href="#cardapio">Cardápio</a>
-                <a href="#experiencia">Experiência</a>
+                <a href="#topo" class="active-link">Início</a>
+                <a href="#menu">Cardápio</a>
+                <a href="#sobre">Sobre</a>
                 <a href="#localizacao">Localização</a>
             </nav>
 
@@ -567,54 +585,108 @@
     <main class="container">
         <section class="hero" style="border-top: none;">
             <div>
-                <div class="badge">&#9733; 5,0 (90 avaliações) &bull; São José do Rio Preto</div>
-                <h1>ARTESANAL DE VERDADE, <span>NO PONTO CERTO.</span></h1>
-                <p class="hero-lead">
-                    Hambúrgueres artesanais preparados na hora, porções caprichadas, clima de happy hour, menu infantil e estacionamento no local no Parque Res. J. Macedo.
+                <div class="hero-kicker">&#9733; 5,0 (90 avaliações) &bull; Parque Res. J. Macedo</div>
+                <h1 id="hero-title">THE ULTIMATE BURGER HAVEN</h1>
+                <p class="hero-desc" id="hero-desc">
+                    Hambúrgueres artesanais preparados no ponto certo, porções caprichadas, clima de happy hour, menu infantil e estacionamento no local em São José do Rio Preto.
                 </p>
 
                 <div class="hero-actions">
-                    <a class="btn btn-primary" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido." target="_blank" rel="noopener noreferrer">
-                        Fazer pedido agora
+                    <a class="btn btn-primary" id="hero-order-btn" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido." target="_blank" rel="noopener noreferrer">
+                        Pedir Agora
                     </a>
-                    <a class="btn btn-secondary" href="#cardapio">
-                        Explorar cardápio
+                    <a class="btn btn-ghost" href="#menu">
+                        Ver Cardápio
                     </a>
                 </div>
 
-                <div class="highlights-strip">
-                    <span>&#10003; Média R$ 40–60 / pessoa</span>
-                    <span>&#10003; Happy hour e porções</span>
-                    <span>&#10003; Menu infantil</span>
-                    <span>&#10003; Estacionamento no local</span>
+                <div class="thumbs-row" role="group" aria-label="Escolher destaque visual">
+                    <button class="thumb-btn active" type="button" data-slide="0" aria-label="Destaque Clássico da Casa">
+                        <svg viewBox="0 0 80 64" width="64" height="52" aria-hidden="true">
+                            <path d="M14 26 C14 14, 66 14, 66 26 Z" fill="#d88c3a"/>
+                            <path d="M12 29 Q24 25 36 29 T60 29 T68 29" fill="none" stroke="#39b54a" stroke-width="4" stroke-linecap="round"/>
+                            <rect x="13" y="33" width="54" height="10" rx="5" fill="#5b2c1d"/>
+                            <path d="M14 45 L66 45 L62 54 L18 54 Z" fill="#c77d30"/>
+                        </svg>
+                    </button>
+
+                    <button class="thumb-btn" type="button" data-slide="1" aria-label="Destaque Especial do Chefe">
+                        <svg viewBox="0 0 80 64" width="64" height="52" aria-hidden="true">
+                            <path d="M14 25 C14 13, 66 13, 66 25 Z" fill="#c97d2d"/>
+                            <polygon points="16,28 64,28 58,35 22,35" fill="#f59e0b"/>
+                            <rect x="13" y="35" width="54" height="10" rx="5" fill="#4c2316"/>
+                            <path d="M14 47 L66 47 L62 55 L18 55 Z" fill="#b86f24"/>
+                        </svg>
+                    </button>
+
+                    <button class="thumb-btn" type="button" data-slide="2" aria-label="Destaque Molho da Casa">
+                        <svg viewBox="0 0 80 64" width="64" height="52" aria-hidden="true">
+                            <path d="M14 24 C14 12, 66 12, 66 24 Z" fill="#de923f"/>
+                            <rect x="13" y="27" width="54" height="10" rx="5" fill="#59291a"/>
+                            <path d="M22 37 Q26 48 24 54 M42 37 Q46 50 44 56 M56 37 Q58 46 57 52" fill="none" stroke="#e05a17" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M14 42 L66 42 L62 51 L18 51 Z" fill="#c77d30"/>
+                        </svg>
+                    </button>
+
+                    <button class="thumb-btn" type="button" data-slide="3" aria-label="Destaque Porções e Happy Hour">
+                        <svg viewBox="0 0 80 64" width="64" height="52" aria-hidden="true">
+                            <rect x="22" y="14" width="7" height="24" rx="2" fill="#fbbf24"/>
+                            <rect x="34" y="10" width="7" height="28" rx="2" fill="#f59e0b"/>
+                            <rect x="46" y="15" width="7" height="23" rx="2" fill="#fbbf24"/>
+                            <polygon points="18,34 62,34 56,54 24,54" fill="#e05a17"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
 
-            <aside class="hero-card" aria-label="Resumo de atendimento">
-                <div class="hero-card-label">Atendimento direto</div>
-                <h2>Peça sem complicação</h2>
-                <p>Tire dúvidas, monte seu pedido ou combine retirada/entrega direto com a equipe no WhatsApp.</p>
-                <ul class="meta-list">
-                    <li>
-                        <strong>WhatsApp</strong>
-                        <span>(17) 99662-4287</span>
-                    </li>
-                    <li>
-                        <strong>Bairro</strong>
-                        <span>Parque Res. J. Macedo</span>
-                    </li>
-                    <li>
-                        <strong>Faixa de preço</strong>
-                        <span>R$ 40–60 por pessoa</span>
-                    </li>
-                </ul>
-            </aside>
+            <div class="showcase-panel">
+                <svg id="showcase-svg" class="showcase-svg" viewBox="0 0 420 320" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="bunTop" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#e39944"/>
+                            <stop offset="100%" stop-color="#b96d22"/>
+                        </linearGradient>
+                        <linearGradient id="pattyGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#6b3421"/>
+                            <stop offset="100%" stop-color="#3c1b10"/>
+                        </linearGradient>
+                        <linearGradient id="sauceGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#f26822"/>
+                            <stop offset="100%" stop-color="#c44209"/>
+                        </linearGradient>
+                    </defs>
+                    <ellipse cx="210" cy="276" rx="135" ry="18" fill="rgba(0,0,0,0.65)"/>
+                    <g id="showcase-artwork">
+                        <path d="M78 122 C78 62, 342 62, 342 122 Z" fill="url(#bunTop)"/>
+                        <circle cx="145" cy="92" r="3" fill="#fde68a"/>
+                        <circle cx="210" cy="82" r="3" fill="#fde68a"/>
+                        <circle cx="272" cy="95" r="3" fill="#fde68a"/>
+                        <circle cx="180" cy="105" r="2.5" fill="#fde68a"/>
+                        <circle cx="240" cy="103" r="2.5" fill="#fde68a"/>
+                        <path d="M72 130 Q105 118 140 130 T210 130 T280 130 T348 130" fill="none" stroke="#36b34a" stroke-width="11" stroke-linecap="round"/>
+                        <rect x="86" y="138" width="248" height="14" rx="7" fill="#ef4444"/>
+                        <rect x="74" y="152" width="272" height="36" rx="18" fill="url(#pattyGrad)"/>
+                        <path d="M78 192 L342 192 L328 232 L92 232 Z" fill="url(#bunTop)"/>
+                        <path d="M115 212 Q105 248 92 270" fill="none" stroke="url(#sauceGrad)" stroke-width="11" stroke-linecap="round"/>
+                        <path d="M195 216 Q188 258 176 282" fill="none" stroke="url(#sauceGrad)" stroke-width="13" stroke-linecap="round"/>
+                        <path d="M275 214 Q288 254 306 272" fill="none" stroke="url(#sauceGrad)" stroke-width="10" stroke-linecap="round"/>
+                        <circle cx="128" cy="242" r="5" fill="#e05a17"/>
+                        <circle cx="242" cy="252" r="6" fill="#e05a17"/>
+                        <circle cx="322" cy="236" r="4" fill="#f59e0b"/>
+                    </g>
+                </svg>
+
+                <div class="showcase-caption">
+                    <h2 class="showcase-title" id="showcase-title">CB Clássico Artesanal</h2>
+                    <div class="showcase-meta" id="showcase-meta">Blend grelhado no ponto &bull; Média R$ 40–60 por pessoa</div>
+                </div>
+            </div>
         </section>
 
-        <section id="cardapio">
-            <div class="section-header">
+        <section id="menu">
+            <div class="section-head">
                 <h2>Cardápio em Destaque</h2>
-                <p>Filtre por categoria e clique em pedir para abrir o WhatsApp com o item já selecionado. Atualize os valores conforme o menu vigente.</p>
+                <p>Filtre por categoria e clique para pedir no WhatsApp com a mensagem já pronta. Ajuste os valores conforme o cardápio atual.</p>
             </div>
 
             <div class="filter-bar" role="tablist" aria-label="Filtrar cardápio">
@@ -630,11 +702,11 @@
                         <span class="card-tag">Burger Artesanal</span>
                         <div class="card-top">
                             <h3>CB Clássico da Casa</h3>
-                            <span class="price-tag">Sob consulta</span>
+                            <span class="price-pill">Sob consulta</span>
                         </div>
-                        <p>Blend artesanal grelhado no ponto, queijo derretido e molho especial da casa no pão macio.</p>
+                        <p>Blend artesanal grelhado no ponto, queijo derretido e molho especial no pão macio.</p>
                     </div>
-                    <div class="card-footer">
+                    <div class="card-bottom">
                         <span style="font-size: 12px; color: var(--text-secondary);">Ponto ajustável</span>
                         <a class="btn btn-secondary btn-sm" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Gostaria%20de%20pedir%20o%20CB%20Cl%C3%A1ssico%20da%20Casa." target="_blank" rel="noopener noreferrer">
                             Pedir item
@@ -647,12 +719,12 @@
                         <span class="card-tag">Burger Artesanal</span>
                         <div class="card-top">
                             <h3>Especial do Chefe</h3>
-                            <span class="price-tag">Sob consulta</span>
+                            <span class="price-pill">Sob consulta</span>
                         </div>
-                        <p>Combinação marcante de carne artesanal, finalização caprichada e sabor equilibrado do início ao fim.</p>
+                        <p>Combinação marcante de carne artesanal, finalização caprichada e sabor equilibrado.</p>
                     </div>
-                    <div class="card-footer">
-                        <span style="font-size: 12px; color: var(--text-secondary);">Mais pedido</span>
+                    <div class="card-bottom">
+                        <span style="font-size: 12px; color: var(--text-secondary);">Destaque da casa</span>
                         <a class="btn btn-secondary btn-sm" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Gostaria%20de%20pedir%20o%20Especial%20do%20Chefe." target="_blank" rel="noopener noreferrer">
                             Pedir item
                         </a>
@@ -663,14 +735,14 @@
                     <div>
                         <span class="card-tag">Porções &amp; Happy Hour</span>
                         <div class="card-top">
-                            <h3>Porção da Casa</h3>
-                            <span class="price-tag">Sob consulta</span>
+                            <h3>Porção para Compartilhar</h3>
+                            <span class="price-pill">Sob consulta</span>
                         </div>
-                        <p>Porção bem servida e crocante para dividir com amigos durante o happy hour ou acompanhar o lanche.</p>
+                        <p>Porção bem servida e crocante para acompanhar o happy hour e reunir com a turma.</p>
                     </div>
-                    <div class="card-footer">
-                        <span style="font-size: 12px; color: var(--text-secondary);">Ideal para compartilhar</span>
-                        <a class="btn btn-secondary btn-sm" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20sobre%20a%20Por%C3%A7%C3%A3o%20da%20Casa." target="_blank" rel="noopener noreferrer">
+                    <div class="card-bottom">
+                        <span style="font-size: 12px; color: var(--text-secondary);">Happy hour</span>
+                        <a class="btn btn-secondary btn-sm" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20sobre%20as%20por%C3%A7%C3%B5es%20e%20happy%20hour." target="_blank" rel="noopener noreferrer">
                             Pedir item
                         </a>
                     </div>
@@ -681,12 +753,12 @@
                         <span class="card-tag">Menu Infantil</span>
                         <div class="card-top">
                             <h3>Combo Kids</h3>
-                            <span class="price-tag">Sob consulta</span>
+                            <span class="price-pill">Sob consulta</span>
                         </div>
-                        <p>Opção pensada para as crianças, com porção na medida certa para curtir em família sem pressa.</p>
+                        <p>Opção pensada para as crianças, com praticidade para curtir em família com estacionamento no local.</p>
                     </div>
-                    <div class="card-footer">
-                        <span style="font-size: 12px; color: var(--text-secondary);">Para a família</span>
+                    <div class="card-bottom">
+                        <span style="font-size: 12px; color: var(--text-secondary);">Família</span>
                         <a class="btn btn-secondary btn-sm" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Gostaria%20de%20ver%20as%20op%C3%A7%C3%B5es%20do%20Menu%20Infantil." target="_blank" rel="noopener noreferrer">
                             Pedir item
                         </a>
@@ -695,45 +767,25 @@
             </div>
         </section>
 
-        <section id="experiencia">
-            <div class="section-header">
-                <h2>Por que escolher o CB Chefe's</h2>
-                <p>Ambiente acolhedor para ir com a família, reunir a galera no happy hour ou pedir direto do celular.</p>
-            </div>
-
-            <div class="perks-grid">
-                <div class="perk-card">
-                    <h3>Avaliação 5,0</h3>
-                    <p>Nota máxima com 90 avaliações, refletindo consistência no preparo e atendimento próximo.</p>
-                </div>
-                <div class="perk-card">
-                    <h3>Happy Hour &amp; Porções</h3>
-                    <p>Boa pedida para relaxar após o expediente com porções caprichadas e clima descontraído.</p>
-                </div>
-                <div class="perk-card">
-                    <h3>Menu Infantil</h3>
-                    <p>Opções adaptadas para os pequenos, tornando o passeio mais prático para pais e mães.</p>
-                </div>
-                <div class="perk-card">
-                    <h3>Estacionamento no Local</h3>
-                    <p>Mais comodidade ao chegar de carro na região do Parque Res. J. Macedo.</p>
-                </div>
+        <section id="sobre">
+            <div class="section-head">
+                <h2>Sobre o CB Chefe's Burguer</h2>
+                <p>Avaliação 5,0 em 90 avaliações, faixa média de R$ 40–60 por pessoa, happy hour, menu infantil e estacionamento no local.</p>
             </div>
         </section>
 
         <section id="localizacao">
-            <div class="section-header">
+            <div class="section-head">
                 <h2>Localização e Contato</h2>
-                <p>Venha visitar ou fale direto pelo WhatsApp para tirar dúvidas e fazer seu pedido.</p>
+                <p>Visite-nos no Parque Res. J. Macedo ou fale direto pelo WhatsApp.</p>
             </div>
 
-            <div class="location-grid">
-                <div class="location-box">
-                    <p class="address-text">
-                        <strong>Endereço:</strong><br>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>Endereço</h3>
+                    <p class="address-line">
                         Av. José Piedade, 2051 - Sl 02- Pq - Parque Res. J. Macedo, São José do Rio Preto - SP, 15040-667
                     </p>
-
                     <div class="hero-actions" style="margin-bottom: 0;">
                         <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Av.%20Jos%C3%A9%20Piedade%2C%202051%20-%20Sl%2002-%20Pq%20-%20Parque%20Res.%20J.%20Macedo%2C%20S%C3%A3o%20Jos%C3%A9%20do%20Rio%20Preto%20-%20SP%2C%2015040-667" target="_blank" rel="noopener noreferrer">
                             Abrir no Google Maps
@@ -742,17 +794,12 @@
                             Copiar endereço
                         </button>
                     </div>
-                    <div class="copy-feedback" id="copy-feedback" aria-live="polite"></div>
+                    <div class="copy-status" id="copy-status" aria-live="polite"></div>
                 </div>
 
-                <div class="location-box">
-                    <p class="address-text">
-                        <strong>Atendimento WhatsApp:</strong><br>
-                        (17) 99662-4287
-                    </p>
-                    <p style="color: var(--text-secondary); font-size: 14px; margin: 0 0 18px;">
-                        Média de R$ 40–60 por pessoa. Ideal para pedidos rápidos e informações do dia.
-                    </p>
+                <div class="info-box">
+                    <h3>Atendimento WhatsApp</h3>
+                    <p>Telefone: (17) 99662-4287<br>Ideal para pedidos, dúvidas e informações do dia.</p>
                     <a class="btn btn-secondary" style="width: 100%;" href="https://wa.me/5517996624287" target="_blank" rel="noopener noreferrer">
                         Chamar (17) 99662-4287
                     </a>
@@ -767,8 +814,8 @@
         </div>
     </footer>
 
-    <div class="mobile-sticky-cta">
-        <div class="mobile-sticky-info">
+    <div class="mobile-bar">
+        <div>
             <strong>CB CHEFE'S BURGUER</strong>
             <span>(17) 99662-4287</span>
         </div>
@@ -778,6 +825,59 @@
     </div>
 
     <script>
+        // Troca interativa das miniaturas do destaque
+        const slides = [
+            {
+                title: "CB Clássico Artesanal",
+                meta: "Blend grelhado no ponto • Média R$ 40–60 por pessoa",
+                waText: "Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20pedir%20o%20CB%20Cl%C3%A1ssico%20Artesanal."
+            },
+            {
+                title: "Especial do Chefe",
+                meta: "Combinação marcante • Avaliação 5,0 (90 avaliações)",
+                waText: "Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20pedir%20o%20Especial%20do%20Chefe."
+            },
+            {
+                title: "Molho & Ponto da Casa",
+                meta: "Preparado na hora • Parque Res. J. Macedo",
+                waText: "Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido."
+            },
+            {
+                title: "Porções & Happy Hour",
+                meta: "Menu infantil e estacionamento no local",
+                waText: "Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20ver%20as%20por%C3%A7%C3%B5es%20e%20happy%20hour."
+            }
+        ];
+
+        const thumbButtons = document.querySelectorAll(".thumb-btn");
+        const showcaseTitle = document.getElementById("showcase-title");
+        const showcaseMeta = document.getElementById("showcase-meta");
+        const heroOrderBtn = document.getElementById("hero-order-btn");
+        const showcaseSvg = document.getElementById("showcase-svg");
+
+        thumbButtons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const idx = Number(btn.getAttribute("data-slide"));
+                const slide = slides[idx];
+                if (!slide) return;
+
+                thumbButtons.forEach((b) => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                if (showcaseTitle) showcaseTitle.textContent = slide.title;
+                if (showcaseMeta) showcaseMeta.textContent = slide.meta;
+                if (heroOrderBtn) {
+                    heroOrderBtn.href = `https://wa.me/5517996624287?text=${slide.waText}`;
+                }
+                if (showcaseSvg) {
+                    showcaseSvg.style.transform = "scale(0.96)";
+                    setTimeout(() => {
+                        showcaseSvg.style.transform = "scale(1)";
+                    }, 140);
+                }
+            });
+        });
+
         // Filtro de categorias do cardápio
         const filterButtons = document.querySelectorAll(".filter-btn");
         const menuCards = document.querySelectorAll(".menu-card");
@@ -791,24 +891,24 @@
 
                 menuCards.forEach((card) => {
                     const category = card.getAttribute("data-category");
-                    const shouldShow = filter === "todos" || category === filter;
-                    card.classList.toggle("hidden", !shouldShow);
+                    const show = filter === "todos" || category === filter;
+                    card.classList.toggle("hidden", !show);
                 });
             });
         });
 
-        // Copiar endereço com feedback visual
+        // Copiar endereço
         const copyBtn = document.getElementById("copy-address-btn");
-        const copyFeedback = document.getElementById("copy-feedback");
-        const fullAddress = "Av. José Piedade, 2051 - Sl 02- Pq - Parque Res. J. Macedo, São José do Rio Preto - SP, 15040-667";
+        const copyStatus = document.getElementById("copy-status");
+        const address = "Av. José Piedade, 2051 - Sl 02- Pq - Parque Res. J. Macedo, São José do Rio Preto - SP, 15040-667";
 
-        if (copyBtn && copyFeedback) {
+        if (copyBtn && copyStatus) {
             copyBtn.addEventListener("click", async () => {
                 try {
-                    await navigator.clipboard.writeText(fullAddress);
-                    copyFeedback.textContent = "Endereço copiado para a área de transferência.";
-                } catch (err) {
-                    copyFeedback.textContent = "Não foi possível copiar automaticamente. Selecione o endereço acima.";
+                    await navigator.clipboard.writeText(address);
+                    copyStatus.textContent = "Endereço copiado com sucesso.";
+                } catch (e) {
+                    copyStatus.textContent = "Não foi possível copiar automaticamente.";
                 }
             });
         }

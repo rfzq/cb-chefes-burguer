@@ -1,422 +1,217 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CB CHEFE'S BURGUER | São José do Rio Preto</title>
-  <style>
-    :root {
-      --bg: #100e0d;
-      --surface: #1b1715;
-      --text: #f7f4f0;
-      --muted: #b3a89e;
-      --accent: #ea580c;
-      --accent-hover: #c2410c;
-      --gold: #fbbf24;
-      --border: #2e2723;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1020px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(16, 14, 13, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-      gap: 12px;
-    }
-
-    .brand {
-      font-weight: 800;
-      font-size: 1rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .brand span {
-      color: var(--gold);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      cursor: pointer;
-      border: none;
-      transition: transform 0.15s ease, background 0.15s ease;
-    }
-
-    .btn:active {
-      transform: scale(0.98);
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-hover);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--muted);
-    }
-
-    .btn-sm {
-      padding: 8px 14px;
-      font-size: 0.85rem;
-      border-radius: 8px;
-    }
-
-    .hero {
-      padding: 60px 0 46px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .tag {
-      display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--gold);
-      background: rgba(251, 191, 36, 0.12);
-      border: 1px solid rgba(251, 191, 36, 0.3);
-      padding: 5px 10px;
-      border-radius: 999px;
-      margin-bottom: 16px;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 5vw, 3.1rem);
-      line-height: 1.1;
-      font-weight: 900;
-      margin-bottom: 14px;
-      max-width: 19ch;
-    }
-
-    .hero p {
-      color: var(--muted);
-      max-width: 56ch;
-      font-size: 1.04rem;
-      margin-bottom: 24px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    section {
-      padding: 54px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-head {
-      margin-bottom: 26px;
-    }
-
-    .section-head h2 {
-      font-size: 1.65rem;
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-
-    .card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-
-    .badge {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--gold);
-      white-space: nowrap;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
-    }
-
-    .info-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 22px;
-    }
-
-    .info-box h3 {
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--gold);
-      margin-bottom: 10px;
-    }
-
-    .info-box p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 14px;
-    }
-
-    footer {
-      padding: 30px 0;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    @media (max-width: 640px) {
-      .nav-links {
-        display: none;
-      }
-      .hero {
-        padding: 42px 0 34px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CB CHEFE'S BURGUER — São José do Rio Preto</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #0c0c0e;
+            color: #f5f5f7;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 18px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: #121216;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+        .button {
+            background-color: #e05a17;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .button:hover {
+            background-color: #f06722;
+        }
+        .button-secondary {
+            background-color: #1c1c21;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+        .button-secondary:hover {
+            background-color: #25252c;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .container {
+            max-width: 1020px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .hero {
+            padding: 36px 0 32px;
+        }
+        .badge {
+            display: inline-block;
+            background-color: rgba(224, 90, 23, 0.18);
+            color: #ff9a62;
+            border: 1px solid rgba(224, 90, 23, 0.35);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+        .hero h2 {
+            font-size: 40px;
+            line-height: 1.1;
+            margin: 0 0 16px;
+            max-width: 18ch;
+        }
+        .hero p {
+            color: #b3b3bc;
+            font-size: 17px;
+            line-height: 1.5;
+            max-width: 54ch;
+            margin: 0 0 24px;
+        }
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        section {
+            padding: 32px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        section h2 {
+            font-size: 26px;
+            margin: 0 0 8px;
+        }
+        .section-note {
+            color: #b3b3bc;
+            margin: 0 0 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+        .card {
+            background-color: #141417;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .card h3 {
+            margin: 0 0 8px;
+            font-size: 19px;
+        }
+        .card p {
+            margin: 0;
+            color: #b3b3bc;
+            line-height: 1.45;
+        }
+        .location-box {
+            background-color: #141417;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .address {
+            margin: 0 0 16px;
+            line-height: 1.5;
+        }
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 24px 20px 36px;
+            text-align: center;
+            color: #b3b3bc;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a href="#" class="brand">CB CHEFE'S <span>BURGUER</span></a>
-      <nav class="nav-links">
-        <a href="#cardapio">Destaques</a>
-        <a href="#local">Horários e Local</a>
-      </nav>
-      <a
-        class="btn btn-primary btn-sm"
-        href="https://wa.me/5517996624287?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido."
-        target="_blank"
-        rel="noopener"
-      >
-        Pedir no WhatsApp
-      </a>
-    </div>
-  </header>
+    <header>
+        <h1>CB CHEFE'S BURGUER</h1>
+        <a class="button" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Gostaria%20de%20fazer%20um%20pedido%20no%20CB%20Chefe%27s%20Burguer." target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+    </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <span class="tag">★ 5,0 (90 avaliações) • Parque Res. J. Macedo</span>
-        <h1>Hambúrguer artesanal no ponto certo em Rio Preto.</h1>
-        <p>
-          Opções artesanais, porções caprichadas, happy hour, menu infantil e estacionamento no local. Média de R$ 40–60 por pessoa.
-        </p>
-        <div class="hero-actions">
-          <a
-            class="btn btn-primary"
-            href="https://wa.me/5517996624287?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20no%20CB%20Chefe%27s%20Burguer."
-            target="_blank"
-            rel="noopener"
-          >
-            Pedir no WhatsApp
-          </a>
-          <a class="btn btn-outline" href="#cardapio">Ver destaques</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="cardapio">
-      <div class="container">
-        <div class="section-head">
-          <h2>Destaques do Menu</h2>
-          <p>Ajuste preços exatos e demais burgers do cardápio conforme o menu oficial.</p>
-        </div>
-
-        <div class="grid">
-          <article class="card">
-            <div>
-              <div class="card-top">
-                <h3>Batata Palito Cheddar Bacon</h3>
-                <span class="badge">Porção</span>
-              </div>
-              <p>Porção crocante de batata palito coberta com cheddar cremoso e bacon.</p>
+    <main class="container">
+        <section class="hero" style="border-top: none;">
+            <div class="badge">&#9733; 5,0 (90 AVALIAÇÕES) &bull; PARQUE RES. J. MACEDO</div>
+            <h2>Hambúrguer artesanal no ponto certo em Rio Preto.</h2>
+            <p>Opções artesanais, porções caprichadas, happy hour, menu infantil e estacionamento no local. Média de R$ 40–60 por pessoa.</p>
+            <div class="actions">
+                <a class="button" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido." target="_blank" rel="noopener noreferrer">Pedir no WhatsApp</a>
+                <a class="button-secondary" href="#destaques">Ver destaques</a>
             </div>
-            <a
-              class="btn btn-outline btn-sm"
-              href="https://wa.me/5517996624287?text=Ol%C3%A1!%20Quero%20pedir%20a%20por%C3%A7%C3%A3o%20de%20Batata%20Palito%20Cheddar%20Bacon."
-              target="_blank"
-              rel="noopener"
-            >
-              Pedir porção
-            </a>
-          </article>
+        </section>
 
-          <article class="card">
-            <div>
-              <div class="card-top">
-                <h3>Mozzarella Sticks</h3>
-                <span class="badge">Destaque</span>
-              </div>
-              <p>Palitos de muçarela empanados e dourados na hora para acompanhar o pedido.</p>
+        <section id="destaques">
+            <h2>Destaques do Menu</h2>
+            <p class="section-note">Ajuste preços exatos e demais burgers do cardápio conforme o menu atual da casa.</p>
+            <div class="grid">
+                <article class="card">
+                    <h3>Clássico da Casa</h3>
+                    <p>Blend artesanal grelhado no ponto, queijo derretido e molho especial no pão macio.</p>
+                </article>
+                <article class="card">
+                    <h3>Porções &amp; Happy Hour</h3>
+                    <p>Porções caprichadas para acompanhar o happy hour e aproveitar com a turma.</p>
+                </article>
+                <article class="card">
+                    <h3>Menu Infantil</h3>
+                    <p>Opções pensadas para as crianças, com conforto e estacionamento no local.</p>
+                </article>
             </div>
-            <a
-              class="btn btn-outline btn-sm"
-              href="https://wa.me/5517996624287?text=Ol%C3%A1!%20Quero%20pedir%20Mozzarella%20Sticks."
-              target="_blank"
-              rel="noopener"
-            >
-              Pedir este item
-            </a>
-          </article>
+        </section>
 
-          <article class="card">
-            <div>
-              <div class="card-top">
-                <h3>Burgers Artesanais</h3>
-                <span class="badge">R$ 40–60</span>
-              </div>
-              <p>Carne no ponto certo, ambiente acolhedor e opções para toda a família, incluindo menu infantil.</p>
+        <section id="localizacao">
+            <h2>Localização e Atendimento</h2>
+            <p class="section-note">WhatsApp: (17) 99662-4287</p>
+            <div class="location-box">
+                <p class="address"><strong>Endereço:</strong> Av. José Piedade, 2051 - Sl 02- Pq - Parque Res. J. Macedo, São José do Rio Preto - SP, 15040-667</p>
+                <div class="actions">
+                    <a class="button" href="https://www.google.com/maps/search/?api=1&query=Av.%20Jos%C3%A9%20Piedade%2C%202051%20-%20Sl%2002-%20Pq%20-%20Parque%20Res.%20J.%20Macedo%2C%20S%C3%A3o%20Jos%C3%A9%20do%20Rio%20Preto%20-%20SP%2C%2015040-667" target="_blank" rel="noopener noreferrer">Abrir no Google Maps</a>
+                    <a class="button-secondary" href="https://wa.me/5517996624287" target="_blank" rel="noopener noreferrer">Chamar (17) 99662-4287</a>
+                </div>
             </div>
-            <a
-              class="btn btn-outline btn-sm"
-              href="https://wa.me/5517996624287?text=Ol%C3%A1!%20Quero%20ver%20as%20op%C3%A7%C3%B5es%20de%20hamb%C3%BArguer%20artesanal."
-              target="_blank"
-              rel="noopener"
-            >
-              Ver opções no WhatsApp
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
+        </section>
+    </main>
 
-    <section id="local">
-      <div class="container">
-        <div class="section-head">
-          <h2>Funcionamento e Localização</h2>
-          <p>Abre às 17:00 com estacionamento no local no Parque Res. J. Macedo.</p>
-        </div>
+    <footer>
+        CB CHEFE'S BURGUER &bull; Av. José Piedade, 2051 - Sl 02- Pq - Parque Res. J. Macedo, São José do Rio Preto - SP, 15040-667
+    </footer>
 
-        <div class="info-grid">
-          <div class="info-box">
-            <h3>Horário e Contato</h3>
-            <p>Abre às 17:00. WhatsApp / Telefone: (17) 99662-4287.</p>
-            <a
-              class="btn btn-primary btn-sm"
-              href="https://wa.me/5517996624287?text=Ol%C3%A1!%20Gostaria%20de%20confirmar%20o%20atendimento%20de%20hoje."
-              target="_blank"
-              rel="noopener"
-            >
-              Chamar (17) 99662-4287
-            </a>
-          </div>
-
-          <div class="info-box">
-            <h3>Endereço</h3>
-            <p>Av. José Piedade, 2051 - Sl 02 - Parque Res. J. Macedo, São José do Rio Preto - SP, 15040-667.</p>
-            <a
-              class="btn btn-outline btn-sm"
-              href="https://www.google.com/maps/search/?api=1&query=Av.+Jos%C3%A9+Piedade,+2051+-+Parque+Res.+J.+Macedo,+S%C3%A3o+Jos%C3%A9+do+Rio+Preto+-+SP,+15040-667"
-              target="_blank"
-              rel="noopener"
-            >
-              Abrir rota no Maps
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      CB CHEFE'S BURGUER • Av. José Piedade, 2051 - Parque Res. J. Macedo, São José do Rio Preto - SP
-    </div>
-  </footer>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+            link.addEventListener("click", (event) => {
+                const targetId = link.getAttribute("href");
+                const target = document.querySelector(targetId);
+                if (target) {
+                    event.preventDefault();
+                    target.scrollIntoView({ behavior: "smooth" });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

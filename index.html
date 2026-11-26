@@ -1,38 +1,39 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+<!DOCTYPE ht"pt-BR">
+<head>ml>
+<html lang=
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#090d16">
-    <meta name="description" content="CB CHEFE'S BURGUER em São José do Rio Preto (Parque Residencial J. Macedo). Hambúrgueres artesanais, combos, bebidas, avaliações e como chegar. Peça pelo WhatsApp.">
-    <title>CB CHEFE'S BURGUER — São José do Rio Preto</title>
+    <meta name="theme-color" content="#0A0A0A">
+    <meta name="description" content="CB CHEFE'S BURGUER em São José do Rio Preto. Blend suculento, pão brioche macio e molhos da casa. Aberto todos os dias 17h - 23h.">
+    <title>CB CHEFE'S BURGUER — O Hambúrguer Artesanal no Ponto Certo em Rio Preto</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         /* =====================================================================
-           PALETA E TOKENS DE DESIGN (DARK #090d16 / #111827 / #1a2436 + ÂMBAR)
+           DESIGN TOKENS — ESTÉTICA DARK PREMIUM (#0A0A0A + #FF7A00 / #F97316)
            ===================================================================== */
         :root {
-            --bg-main: #090d16;
-            --bg-surface: #111827;
-            --bg-surface-elevated: #1a2436;
-            --bg-card-hover: #212e45;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --accent: #f59e0b;
-            --accent-hover: #fbbf24;
-            --accent-soft: rgba(245, 158, 11, 0.16);
+            --bg-void: #0A0A0A;
+            --bg-elevated: #111111;
+            --bg-card: #141414;
+            --bg-card-hover: #1B1B1B;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A1A1AA;
+            --text-muted: #71717A;
+            --accent: #FF7A00;
+            --accent-alt: #F97316;
+            --accent-hover: #FF8F24;
+            --accent-soft: rgba(255, 122, 0, 0.14);
             --border-subtle: rgba(255, 255, 255, 0.09);
-            --border-strong: rgba(255, 255, 255, 0.2);
-            --radius-sm: 10px;
-            --radius-md: 16px;
-            --radius-lg: 22px;
-            --font-display: "Bebas Neue", sans-serif;
-            --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+            --border-strong: rgba(255, 255, 255, 0.22);
+            --font-display: "Bebas Neue", "Oswald", sans-serif;
+            --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
         }
 
         * {
@@ -43,1565 +44,1388 @@
 
         html {
             scroll-behavior: smooth;
+            background-color: var(--bg-void);
         }
 
         body {
-            background-color: var(--bg-main);
+            background-color: var(--bg-void);
+            background-image:
+                radial-gradient(circle at 78% 22%, rgba(255, 122, 0, 0.12) 0%, rgba(10, 10, 10, 0) 48%),
+                radial-gradient(circle at 18% 78%, rgba(249, 115, 22, 0.06) 0%, rgba(10, 10, 10, 0) 45%);
             color: var(--text-primary);
-            font-family: var(--font-sans);
+            font-family: var(--font-body);
             line-height: 1.5;
             min-height: 100vh;
-            padding-bottom: 132px;
             overflow-x: hidden;
-        }
-
-        @media (min-width: 900px) {
-            body {
-                padding-bottom: 84px;
-            }
+            padding-bottom: 96px;
         }
 
         .container {
             width: 100%;
-            max-width: 1140px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 18px;
+            padding: 0 20px;
         }
 
         /* =====================================================================
-           CABEÇALHO E ABAS SUPERIORES
+           MENU SUPERIOR FIXO
            ===================================================================== */
-        .app-header {
+        .top-navbar {
             position: sticky;
             top: 0;
-            z-index: 50;
-            background: rgba(9, 13, 22, 0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            z-index: 60;
+            background: rgba(10, 10, 10, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border-subtle);
         }
 
-        .header-top {
+        .navbar-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
             min-height: 68px;
-            gap: 12px;
+            gap: 16px;
         }
 
-        .brand {
+        .brand-cb {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 9px;
             text-decoration: none;
             color: var(--text-primary);
-            cursor: pointer;
-        }
-
-        .brand-logo-svg {
-            width: 38px;
-            height: 38px;
-            flex-shrink: 0;
-            border-radius: 11px;
-            background: var(--bg-surface-elevated);
-            border: 1px solid rgba(245, 158, 11, 0.4);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .brand-text {
             font-family: var(--font-display);
-            font-size: 24px;
-            letter-spacing: 0.9px;
+            font-size: 28px;
+            letter-spacing: 1px;
             line-height: 1;
         }
 
-        .brand-text span {
-            color: var(--accent);
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .hours-pill {
-            display: none;
-            align-items: center;
-            gap: 6px;
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-secondary);
-            font-size: 12px;
-            font-weight: 700;
-            padding: 7px 12px;
-            border-radius: 999px;
-        }
-
-        .hours-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #22c55e;
-        }
-
-        @media (min-width: 720px) {
-            .hours-pill {
-                display: inline-flex;
-            }
-        }
-
-        .top-tabs-wrap {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(17, 24, 39, 0.78);
-        }
-
-        .top-tabs {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            overflow-x: auto;
-            scrollbar-width: none;
-            padding: 10px 0;
-        }
-
-        .top-tabs::-webkit-scrollbar {
-            display: none;
-        }
-
-        .tab-btn {
-            flex: 0 0 auto;
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            background: var(--bg-surface);
-            color: var(--text-secondary);
-            border: 1px solid var(--border-subtle);
-            padding: 8px 15px;
-            border-radius: 999px;
-            font-family: var(--font-sans);
-            font-size: 13px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .tab-btn:hover {
-            color: var(--text-primary);
-            border-color: var(--border-strong);
-        }
-
-        .tab-btn.active {
-            background: var(--accent);
-            color: #090d16;
-            border-color: var(--accent);
-        }
-
-        /* =====================================================================
-           BOTÕES
-           ===================================================================== */
-        .btn {
+        .brand-cb-mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 122, 0, 0.55);
+            background: rgba(255, 122, 0, 0.12);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 7px;
-            padding: 11px 18px;
-            border-radius: var(--radius-sm);
-            font-family: var(--font-sans);
-            font-weight: 700;
-            font-size: 13.5px;
-            text-decoration: none;
-            border: 1px solid transparent;
-            cursor: pointer;
-            transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease;
+            font-family: var(--font-display);
+            font-size: 18px;
+            color: var(--accent);
         }
 
-        .btn:active {
-            transform: scale(0.98);
-        }
-
-        .btn-primary {
-            background-color: var(--accent);
-            color: #090d16;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
-        }
-
-        .btn-secondary {
-            background-color: var(--bg-surface-elevated);
-            color: var(--text-primary);
-            border-color: var(--border-strong);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--bg-card-hover);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-sm {
-            padding: 8px 12px;
-            font-size: 12.5px;
-        }
-
-        /* =====================================================================
-           CONTROLE DE ABAS / SEÇÕES
-           ===================================================================== */
-        .tab-view {
+        .nav-center-links {
             display: none;
-            padding: 24px 0 16px;
-            animation: fadeTab 0.2s ease;
+            align-items: center;
+            gap: 28px;
         }
 
-        .tab-view.active {
+        .nav-center-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-center-links a:hover {
+            color: var(--accent);
+        }
+
+        @media (min-width: 768px) {
+            .nav-center-links {
+                display: flex;
+            }
+        }
+
+        .nav-right-icons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon-btn {
+            position: relative;
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-decoration: none;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .icon-btn:hover {
+            border-color: var(--accent);
+            background: rgba(255, 122, 0, 0.08);
+        }
+
+        .cart-badge-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            min-width: 18px;
+            height: 18px;
+            padding: 0 4px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: #0A0A0A;
+            font-size: 10.5px;
+            font-weight: 800;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-badge-count.show {
+            display: inline-flex;
+        }
+
+        /* Barra de busca rápida expansível */
+        .quick-search-drawer {
+            display: none;
+            padding: 10px 0 14px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .quick-search-drawer.open {
             display: block;
         }
 
-        @keyframes fadeTab {
-            from {
-                opacity: 0;
-                transform: translateY(6px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Hero */
-        .hero {
-            background: linear-gradient(145deg, var(--bg-surface) 0%, #151f32 100%);
-            border: 1px solid var(--border-strong);
-            border-radius: var(--radius-lg);
-            padding: 24px;
-            margin-bottom: 24px;
-        }
-
-        @media (min-width: 820px) {
-            .hero {
-                padding: 36px;
-            }
-        }
-
-        .status-strip {
-            display: inline-flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 8px;
-            background: rgba(34, 197, 94, 0.12);
-            border: 1px solid rgba(34, 197, 94, 0.35);
-            color: #86efac;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 6px 13px;
-            border-radius: 999px;
-            margin-bottom: 12px;
-        }
-
-        .rating-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: var(--accent-soft);
-            color: var(--accent-hover);
-            border: 1px solid rgba(245, 158, 11, 0.38);
-            padding: 6px 14px;
-            border-radius: 999px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.4px;
-            text-transform: uppercase;
-            margin-bottom: 14px;
-            margin-left: 4px;
-        }
-
-        .hero h1 {
-            font-family: var(--font-display);
-            font-size: clamp(40px, 7.5vw, 66px);
-            line-height: 0.98;
-            letter-spacing: 0.8px;
-            margin-bottom: 14px;
-            max-width: 19ch;
-        }
-
-        .hero h1 span {
-            color: var(--accent);
-        }
-
-        .hero-lead {
-            color: var(--text-secondary);
-            font-size: 15.5px;
-            max-width: 62ch;
-            margin-bottom: 22px;
-        }
-
-        .hero-actions {
+        .quick-search-row {
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
             gap: 10px;
         }
 
-        .section-block {
-            padding: 24px 0 8px;
-            border-top: 1px solid var(--border-subtle);
-            margin-top: 22px;
-        }
-
-        .section-block:first-child {
-            border-top: none;
-            margin-top: 0;
-            padding-top: 0;
-        }
-
-        .section-header {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            margin-bottom: 18px;
-        }
-
-        .section-header h2 {
-            font-family: var(--font-display);
-            font-size: 36px;
-            letter-spacing: 0.8px;
-            line-height: 1;
-        }
-
-        .section-header h2 span {
-            color: var(--accent);
-        }
-
-        .section-header p {
-            color: var(--text-secondary);
-            font-size: 14px;
-            max-width: 62ch;
-        }
-
-        /* Barra de busca e subfiltros */
-        .controls-row {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        @media (min-width: 720px) {
-            .controls-row {
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-            }
-        }
-
-        .search-box {
-            position: relative;
+        .quick-search-input {
             flex: 1;
-            max-width: 420px;
-        }
-
-        .search-input {
-            width: 100%;
-            background-color: var(--bg-surface);
+            background: var(--bg-card);
             border: 1px solid var(--border-strong);
             color: var(--text-primary);
             border-radius: var(--radius-sm);
-            padding: 10px 14px 10px 38px;
-            font-family: var(--font-sans);
+            padding: 10px 14px;
+            font-family: var(--font-body);
             font-size: 14px;
             outline: none;
         }
 
-        .search-input:focus {
+        .quick-search-input:focus {
             border-color: var(--accent);
         }
 
-        .search-icon {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
+        /* =====================================================================
+           BOTÕES PADRÃO
+           ===================================================================== */
+        .btn-orange {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+            color: #0A0A0A;
+            font-family: var(--font-body);
+            font-weight: 800;
             font-size: 14px;
-            pointer-events: none;
+            padding: 12px 22px;
+            border-radius: var(--radius-sm);
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.15s ease, filter 0.2s ease;
         }
 
-        .subfilter-pills {
+        .btn-orange:hover {
+            filter: brightness(1.08);
+        }
+
+        .btn-orange:active {
+            transform: scale(0.98);
+        }
+
+        .btn-orange-sm {
+            padding: 8px 14px;
+            font-size: 12.5px;
+            border-radius: 7px;
+        }
+
+        .btn-ghost-white {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: transparent;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 14px;
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            border: 1px solid transparent;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .btn-ghost-white:hover {
+            color: var(--accent);
+            border-color: var(--border-subtle);
+        }
+
+        .btn-dark-border {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 11px 18px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-strong);
+            text-decoration: none;
+            cursor: pointer;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .btn-dark-border:hover {
+            border-color: var(--accent);
+            background: var(--bg-card-hover);
+        }
+
+        /* =====================================================================
+           HERO DIVIDIDO EM 2 COLUNAS (1 COLUNA NO CELULAR)
+           ===================================================================== */
+        .hero-section {
+            position: relative;
+            padding: 36px 0 44px;
+        }
+
+        @media (min-width: 900px) {
+            .hero-section {
+                padding: 52px 0 64px;
+            }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        @media (min-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1.05fr 0.95fr;
+                gap: 40px;
+            }
+        }
+
+        .hero-meta-line {
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .hero-meta-star {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(46px, 8.2vw, 82px);
+            font-weight: 700;
+            line-height: 0.95;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .hero-subtitle {
+            font-size: 14.5px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            max-width: 48ch;
+            margin-bottom: 24px;
+        }
+
+        .hero-cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .hero-bottom-bar {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .hero-thumbs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .hero-thumb-btn {
+            width: 58px;
+            height: 58px;
+            padding: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            cursor: pointer;
+            transition: transform 0.15s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        @media (min-width: 640px) {
+            .hero-thumb-btn {
+                width: 64px;
+                height: 64px;
+            }
+        }
+
+        .hero-thumb-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-thumb-btn.active {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(255, 122, 0, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .hero-like-box {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .heart-like-btn {
+            background: rgba(20, 20, 20, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: var(--text-primary);
+            width: 46px;
+            height: 46px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.15s ease, border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .heart-like-btn:hover {
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .heart-like-btn.liked {
+            border-color: var(--accent);
+            background: rgba(255, 122, 0, 0.18);
+            color: var(--accent);
+        }
+
+        .heart-like-btn.liked svg path {
+            fill: var(--accent);
+            stroke: var(--accent);
+        }
+
+        .like-count-text {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Coluna direita do Hero: hambúrguer flutuando em fundo escuro */
+        .hero-visual-stage {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 0;
+        }
+
+        .hero-glow-ring {
+            position: relative;
+            width: 100%;
+            max-width: 470px;
+            aspect-ratio: 1 / 1;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(255, 122, 0, 0.22) 0%, rgba(249, 115, 22, 0.06) 48%, rgba(10, 10, 10, 0) 72%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+        }
+
+        .hero-main-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 26px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 28px 60px rgba(0, 0, 0, 0.88), 0 0 36px rgba(255, 122, 0, 0.18);
+            animation: floatBurger 4.2s ease-in-out infinite;
+        }
+
+        @keyframes floatBurger {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hero-spotlight-caption {
+            margin-top: 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .spotlight-burger-name {
+            font-family: var(--font-display);
+            font-size: 22px;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+
+        .spotlight-burger-price {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        /* =====================================================================
+           SEÇÕES SEGUINTES (ESTÉTICA ESCURA SEM FUNDOS CLAROS)
+           ===================================================================== */
+        .page-section {
+            padding: 44px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .section-head {
+            margin-bottom: 22px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(34px, 6vw, 48px);
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            line-height: 1;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        .section-sub {
+            font-size: 13.5px;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        /* Filtros */
+        .category-filters {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+            margin-bottom: 22px;
         }
 
-        .pill-btn {
-            background-color: var(--bg-surface);
+        .cat-pill {
+            background: var(--bg-card);
             color: var(--text-secondary);
             border: 1px solid var(--border-subtle);
-            padding: 8px 15px;
             border-radius: 999px;
-            font-family: var(--font-sans);
-            font-size: 13px;
+            padding: 8px 16px;
+            font-family: var(--font-body);
+            font-size: 12.5px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
         }
 
-        .pill-btn.active {
-            background-color: var(--accent);
-            color: #090d16;
+        .cat-pill:hover {
+            color: var(--text-primary);
+            border-color: var(--border-strong);
+        }
+
+        .cat-pill.active {
+            background: var(--accent);
+            color: #0A0A0A;
             border-color: var(--accent);
         }
 
-        /* Cards de itens */
-        .items-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
-            gap: 16px;
-        }
-
-        .food-card {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-md);
-            padding: 18px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 14px;
-            transition: border-color 0.2s ease, transform 0.2s ease;
-        }
-
-        .food-card:hover {
-            border-color: rgba(245, 158, 11, 0.45);
-            transform: translateY(-2px);
-        }
-
-        .food-card.hidden-item {
-            display: none;
-        }
-
-        .card-badges-line {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-        }
-
-        .card-tag {
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            color: var(--accent-hover);
-        }
-
-        .spotlight-seal {
-            font-size: 10.5px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 3px 9px;
-            border-radius: 999px;
-            background: rgba(245, 158, 11, 0.18);
-            color: var(--accent-hover);
-            border: 1px solid rgba(245, 158, 11, 0.45);
-        }
-
-        .card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 6px;
-        }
-
-        .food-card h3 {
-            font-size: 17.5px;
-            font-weight: 700;
-            line-height: 1.25;
-        }
-
-        .price-tag {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text-primary);
-            background-color: var(--bg-surface-elevated);
-            border: 1px solid var(--border-subtle);
-            padding: 4px 10px;
-            border-radius: 6px;
-            white-space: nowrap;
-        }
-
-        .price-tag.combo {
-            color: var(--accent-hover);
-            border-color: rgba(245, 158, 11, 0.4);
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            color: var(--text-muted);
-            font-size: 12.5px;
-            font-weight: 600;
-            margin-right: 6px;
-        }
-
-        .new-price {
-            color: var(--accent-hover);
-            font-size: 15px;
-            font-weight: 800;
-        }
-
-        /* Descrição limitada a 2 linhas com "Ver mais" */
-        .food-desc {
-            color: var(--text-secondary);
-            font-size: 13.5px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .food-desc.expanded {
-            display: block;
-            -webkit-line-clamp: unset;
-            overflow: visible;
-        }
-
-        .see-more-btn {
-            background: none;
-            border: none;
-            color: var(--accent-hover);
-            font-family: var(--font-sans);
-            font-size: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            padding: 4px 0 0;
-            display: inline-block;
-        }
-
-        .see-more-btn:hover {
-            text-decoration: underline;
-        }
-
-        .price-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .card-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            padding-top: 12px;
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .combo-banner {
-            background-color: var(--accent-soft);
-            border: 1px solid rgba(245, 158, 11, 0.35);
-            color: var(--accent-hover);
-            padding: 12px 16px;
-            border-radius: var(--radius-sm);
-            font-size: 13.5px;
-            font-weight: 700;
-            margin-bottom: 18px;
-        }
-
-        /* Bebidas e Adicionais */
-        .extra-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
-            gap: 16px;
-        }
-
-        .list-box {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-md);
-            padding: 20px;
-        }
-
-        .list-box h3 {
-            font-family: var(--font-display);
-            font-size: 25px;
-            letter-spacing: 0.6px;
-            color: var(--accent-hover);
-            margin-bottom: 14px;
-        }
-
-        .price-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .price-list li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-            font-size: 13.5px;
-            padding-bottom: 9px;
-            border-bottom: 1px dashed var(--border-subtle);
-        }
-
-        .price-list li:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .price-list span.item-name {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .price-list span.item-sub {
-            display: block;
-            font-size: 12px;
-            color: var(--text-secondary);
-            font-weight: 400;
-        }
-
-        .price-list-right {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            white-space: nowrap;
-        }
-
-        .price-list strong {
-            color: var(--accent-hover);
-            font-size: 13.5px;
-        }
-
-        /* Ponto da carne e Serviços */
-        .doneness-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 14px;
-            margin-bottom: 14px;
-        }
-
-        .doneness-card {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-md);
-            padding: 18px;
-        }
-
-        .doneness-card h3 {
-            margin-bottom: 6px;
-            font-size: 16px;
-            color: var(--accent-hover);
-            text-transform: uppercase;
-        }
-
-        .doneness-card p {
-            color: var(--text-secondary);
-            font-size: 13.5px;
-        }
-
-        .blend-note {
-            background-color: var(--bg-surface-elevated);
-            border-left: 3px solid var(--accent);
-            padding: 14px 16px;
-            border-radius: var(--radius-sm);
-            font-size: 13.5px;
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .service-item {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-sm);
-            padding: 12px 14px;
-            font-size: 13.5px;
-            font-weight: 600;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .service-check {
-            color: var(--accent-hover);
-            font-weight: 800;
-        }
-
-        /* Avaliações */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
-        }
-
-        .review-card {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-md);
-            padding: 18px;
-        }
-
-        .review-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .reviewer-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .avatar-svg {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .reviewer-name {
-            font-size: 14px;
-            font-weight: 700;
-            display: block;
-        }
-
-        .review-stars {
-            color: var(--accent-hover);
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        .review-quote {
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-
-        /* Localização / Como chegar */
-        .location-grid {
+        /* Grade de cards escuros */
+        .cards-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 18px;
         }
 
-        @media (min-width: 820px) {
-            .location-grid {
-                grid-template-columns: 1.15fr 0.85fr;
+        @media (min-width: 580px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        .location-box {
-            background-color: var(--bg-surface);
+        @media (min-width: 960px) {
+            .cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .dark-food-card {
+            background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-md);
-            padding: 22px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.2s ease, transform 0.2s ease;
         }
 
-        .info-block {
-            font-size: 14.5px;
-            margin-bottom: 14px;
+        .dark-food-card:hover {
+            border-color: rgba(255, 122, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .dark-food-card.hidden-card {
+            display: none;
+        }
+
+        .card-photo-wrap {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: var(--bg-elevated);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .card-photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .card-name {
+            font-family: var(--font-display);
+            font-size: 24px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
             color: var(--text-primary);
+            margin-bottom: 5px;
         }
 
-        .info-muted {
-            color: var(--text-secondary);
-            font-size: 13.5px;
-            margin-bottom: 16px;
-        }
-
-        .copy-feedback {
+        .card-short-desc {
             font-size: 13px;
-            color: var(--accent-hover);
-            min-height: 20px;
-            margin-top: 10px;
-            font-weight: 600;
+            font-weight: 400;
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+
+        .card-bottom-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .price-orange {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .price-strike {
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-right: 6px;
+        }
+
+        .price-promo {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--accent);
         }
 
         /* =====================================================================
-           BOTÃO FLUTUANTE DO CARRINHO + DRAWER / MODAL DO CARRINHO
+           MONTE O SEU LANCHE (SEÇÃO + MODAL)
            ===================================================================== */
-        .floating-cart-bar {
+        .builder-banner-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 122, 0, 0.35);
+            border-radius: var(--radius-md);
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .builder-banner-card {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                padding: 26px;
+            }
+        }
+
+        .builder-summary-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .builder-mini-tag {
+            font-size: 12px;
+            color: var(--text-secondary);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            padding: 5px 10px;
+            border-radius: 6px;
+        }
+
+        /* =====================================================================
+           AVALIAÇÕES
+           ===================================================================== */
+        .reviews-header-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            padding: 7px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .review-dark-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 18px;
+        }
+
+        .review-stars {
+            color: var(--accent);
+            font-size: 13.5px;
+            margin-bottom: 8px;
+        }
+
+        .review-comment {
+            font-size: 13.5px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .review-author {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* =====================================================================
+           ENDEREÇO E CONTATO
+           ===================================================================== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        @media (min-width: 820px) {
+            .contact-grid {
+                grid-template-columns: 1.1fr 0.9fr;
+            }
+        }
+
+        .info-dark-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 20px;
+        }
+
+        .store-open-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12.5px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 999px;
+            margin-bottom: 12px;
+        }
+
+        .store-open-pill.open {
+            background: rgba(34, 197, 94, 0.14);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.35);
+        }
+
+        .store-open-pill.closed {
+            background: rgba(161, 161, 170, 0.14);
+            color: #d4d4d8;
+            border: 1px solid rgba(161, 161, 170, 0.28);
+        }
+
+        .info-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-size: 14px;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+        }
+
+        .info-sub {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .btn-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .copy-status-msg {
+            min-height: 18px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-top: 8px;
+        }
+
+        /* =====================================================================
+           BOTÃO FLUTUANTE DO CARRINHO E MODAIS
+           ===================================================================== */
+        .floating-cart-wrap {
             position: fixed;
             left: 16px;
             right: 16px;
-            bottom: 66px;
-            z-index: 58;
-            max-width: 680px;
+            bottom: 16px;
+            z-index: 65;
+            max-width: 540px;
             margin: 0 auto;
             display: none;
         }
 
-        .floating-cart-bar.visible {
+        .floating-cart-wrap.visible {
             display: block;
-        }
-
-        @media (min-width: 900px) {
-            .floating-cart-bar {
-                bottom: 18px;
-            }
         }
 
         .floating-cart-btn {
             width: 100%;
-            background: linear-gradient(135deg, var(--accent), #ea580c);
-            color: #090d16;
+            background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+            color: #0A0A0A;
             border: none;
             border-radius: var(--radius-md);
             padding: 14px 20px;
-            font-family: var(--font-sans);
-            font-size: 14.5px;
+            font-family: var(--font-body);
+            font-size: 14px;
             font-weight: 800;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 12px;
             cursor: pointer;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.75);
         }
 
-        .floating-cart-btn:hover {
-            filter: brightness(1.05);
-        }
-
-        /* Drawer lateral do carrinho */
-        .drawer-backdrop {
-            position: fixed;
-            inset: 0;
-            z-index: 85;
-            background: rgba(0, 0, 0, 0.72);
-            backdrop-filter: blur(4px);
-            display: none;
-            justify-content: flex-end;
-        }
-
-        .drawer-backdrop.open {
-            display: flex;
-        }
-
-        .drawer-panel {
-            width: 100%;
-            max-width: 430px;
-            height: 100%;
-            background: var(--bg-surface);
-            border-left: 1px solid var(--border-strong);
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow-y: auto;
-        }
-
-        .drawer-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-bottom: 14px;
-            border-bottom: 1px solid var(--border-subtle);
-            margin-bottom: 14px;
-        }
-
-        .drawer-header h3 {
-            font-family: var(--font-display);
-            font-size: 28px;
-            letter-spacing: 0.6px;
-        }
-
-        .close-btn {
-            background: var(--bg-surface-elevated);
-            color: var(--text-primary);
-            border: 1px solid var(--border-subtle);
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            font-size: 18px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .cart-items-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-
-        .cart-item-card {
-            background: var(--bg-surface-elevated);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-sm);
-            padding: 12px;
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-        }
-
-        .cart-thumb {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: var(--accent-soft);
-            border: 1px solid rgba(245, 158, 11, 0.35);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-
-        .cart-item-body {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .cart-item-title {
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        .cart-item-sub {
-            font-size: 12px;
-            color: var(--text-secondary);
-            margin-top: 2px;
-        }
-
-        .cart-item-controls {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .qty-group {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .qty-btn {
-            width: 28px;
-            height: 28px;
-            border-radius: 7px;
-            border: 1px solid var(--border-strong);
-            background: var(--bg-surface);
-            color: var(--text-primary);
-            font-weight: 800;
-            cursor: pointer;
-        }
-
-        .qty-num {
-            font-size: 13px;
-            font-weight: 700;
-            min-width: 18px;
-            text-align: center;
-        }
-
-        .remove-link {
-            background: none;
-            border: none;
-            color: #fca5a5;
-            font-size: 12px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .coupon-box {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        .coupon-input {
-            flex: 1;
-            background: var(--bg-surface-elevated);
-            border: 1px solid var(--border-strong);
-            color: var(--text-primary);
-            border-radius: var(--radius-sm);
-            padding: 9px 12px;
-            font-family: var(--font-sans);
-            font-size: 13px;
-            text-transform: uppercase;
-        }
-
-        .coupon-msg {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--accent-hover);
-            min-height: 18px;
-            margin-bottom: 10px;
-        }
-
-        .obs-input {
-            width: 100%;
-            background: var(--bg-surface-elevated);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-primary);
-            border-radius: var(--radius-sm);
-            padding: 9px 12px;
-            font-family: var(--font-sans);
-            font-size: 13px;
-            margin-bottom: 14px;
-        }
-
-        .summary-lines {
-            border-top: 1px solid var(--border-subtle);
-            padding-top: 12px;
-            margin-bottom: 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            font-size: 13.5px;
-        }
-
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            color: var(--text-secondary);
-        }
-
-        .summary-row.total {
-            color: var(--text-primary);
-            font-size: 16px;
-            font-weight: 800;
-            padding-top: 6px;
-            border-top: 1px dashed var(--border-subtle);
-        }
-
-        .summary-row.total strong {
-            color: var(--accent-hover);
-        }
-
-        /* =====================================================================
-           MODAL MONTE O SEU LANCHE
-           ===================================================================== */
-        .modal-backdrop {
+        .modal-overlay {
             position: fixed;
             inset: 0;
             z-index: 90;
-            background: rgba(0, 0, 0, 0.78);
+            background: rgba(0, 0, 0, 0.82);
             backdrop-filter: blur(5px);
             display: none;
-            align-items: flex-end;
+            align-items: center;
             justify-content: center;
+            padding: 16px;
         }
 
-        @media (min-width: 640px) {
-            .modal-backdrop {
-                align-items: center;
-                padding: 20px;
-            }
-        }
-
-        .modal-backdrop.open {
+        .modal-overlay.open {
             display: flex;
         }
 
-        .modal-sheet {
+        .modal-box {
             width: 100%;
-            max-width: 520px;
-            max-height: 90vh;
+            max-width: 500px;
+            max-height: 88vh;
             overflow-y: auto;
-            background: var(--bg-surface);
+            background: var(--bg-elevated);
             border: 1px solid var(--border-strong);
-            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            border-radius: var(--radius-lg);
             padding: 22px;
         }
 
-        @media (min-width: 640px) {
-            .modal-sheet {
-                border-radius: var(--radius-lg);
-            }
-        }
-
-        .modal-header {
+        .modal-top {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: space-between;
-            gap: 10px;
             padding-bottom: 12px;
             border-bottom: 1px solid var(--border-subtle);
             margin-bottom: 16px;
         }
 
-        .modal-header h3 {
+        .modal-top h3 {
             font-family: var(--font-display);
             font-size: 28px;
             letter-spacing: 0.6px;
+            text-transform: uppercase;
         }
 
-        .builder-group {
+        .modal-close {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .option-block {
             margin-bottom: 16px;
         }
 
-        .builder-label {
+        .option-block-title {
             display: block;
             font-size: 12px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.6px;
-            color: var(--accent-hover);
+            color: var(--accent);
             margin-bottom: 8px;
         }
 
-        .builder-grid {
+        .choice-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
             gap: 8px;
         }
 
-        .choice-pill {
-            background: var(--bg-surface-elevated);
+        .choice-card-btn {
+            background: var(--bg-card);
             color: var(--text-secondary);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-sm);
-            padding: 10px 12px;
-            font-family: var(--font-sans);
-            font-size: 13px;
+            padding: 10px;
+            font-family: var(--font-body);
+            font-size: 12.5px;
             font-weight: 700;
             text-align: left;
             cursor: pointer;
         }
 
-        .choice-pill small {
+        .choice-card-btn small {
             display: block;
             font-size: 11px;
-            font-weight: 600;
-            opacity: 0.85;
+            font-weight: 500;
             margin-top: 2px;
+            color: var(--text-muted);
         }
 
-        .choice-pill.active {
+        .choice-card-btn.selected {
             background: var(--accent-soft);
             border-color: var(--accent);
             color: var(--text-primary);
         }
 
-        .addon-check-item {
+        .extra-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 10px;
-            background: var(--bg-surface-elevated);
+            background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-sm);
             padding: 10px 12px;
             margin-bottom: 8px;
+            font-size: 13px;
             cursor: pointer;
-            font-size: 13.5px;
         }
 
-        .addon-check-left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-        }
-
-        .addon-check-item input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
+        .extra-row input {
+            width: 17px;
+            height: 17px;
             accent-color: var(--accent);
-            cursor: pointer;
+            margin-right: 8px;
         }
 
-        .modal-footer {
-            position: sticky;
-            bottom: -22px;
-            background: var(--bg-surface);
-            padding-top: 14px;
-            border-top: 1px solid var(--border-subtle);
+        .cart-line-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 12px;
+            gap: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 12px;
+            margin-bottom: 10px;
         }
 
-        .modal-total-lbl {
-            display: block;
-            font-size: 11px;
-            color: var(--text-secondary);
+        .qty-stepper {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .qty-stepper button {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            border: 1px solid var(--border-strong);
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .coupon-flex {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .coupon-input {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border-strong);
+            color: var(--text-primary);
+            border-radius: var(--radius-sm);
+            padding: 9px 12px;
+            font-family: var(--font-body);
+            font-size: 13px;
             text-transform: uppercase;
         }
 
-        .modal-total-val {
-            font-family: var(--font-display);
-            font-size: 28px;
-            color: var(--accent-hover);
+        .totals-summary {
+            margin: 14px 0;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 13.5px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
-        /* =====================================================================
-           RODAPÉ E MENU INFERIOR FIXO
-           ===================================================================== */
+        .totals-row {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-secondary);
+        }
+
+        .totals-row.final {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-primary);
+            padding-top: 6px;
+            border-top: 1px dashed var(--border-subtle);
+        }
+
+        .totals-row.final strong {
+            color: var(--accent);
+        }
+
         footer {
             border-top: 1px solid var(--border-subtle);
             padding: 24px 0;
-            color: var(--text-secondary);
-            font-size: 13px;
             text-align: center;
-            margin-top: 24px;
-        }
-
-        .bottom-nav {
-            position: fixed;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 60;
-            background-color: rgba(17, 24, 39, 0.96);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-top: 1px solid var(--border-strong);
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
-        }
-
-        @media (min-width: 900px) {
-            .bottom-nav {
-                display: none;
-            }
-        }
-
-        .bottom-nav-btn {
-            background: transparent;
-            border: none;
+            font-size: 12.5px;
             color: var(--text-secondary);
-            font-family: var(--font-sans);
-            font-size: 10.5px;
-            font-weight: 700;
-            padding: 5px 2px;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px;
-        }
-
-        .bottom-nav-btn.active {
-            color: var(--accent-hover);
         }
     </style>
 </head>
 <body>
-    <!-- Cabeçalho -->
-    <header class="app-header">
+    <!-- =====================================================================
+         MENU SUPERIOR FIXO
+         ===================================================================== -->
+    <header class="top-navbar">
         <div class="container">
-            <div class="header-top">
-                <a class="brand" href="#inicio" data-go-tab="inicio">
-                    <span class="brand-logo-svg" aria-hidden="true">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M5 9C5 5.68629 8.13401 3 12 3C15.866 3 19 5.68629 19 9H5Z" fill="#f59e0b"/>
-                            <rect x="4" y="10.5" width="16" height="3" rx="1.5" fill="#fbbf24"/>
-                            <path d="M4.5 15.5H19.5V17.5C19.5 19.1569 18.1569 20.5 16.5 20.5H7.5C5.84315 20.5 4.5 19.1569 4.5 17.5V15.5Z" fill="#ea580c"/>
-                        </svg>
-                    </span>
-                    <span class="brand-text">CB CHEFE'S <span>BURGUER</span></span>
+            <div class="navbar-inner">
+                <a class="brand-cb" href="#home" aria-label="CB Chefe's Burguer Início">
+                    <span class="brand-cb-mark">CB</span>
+                    <span>CHEFE'S</span>
                 </a>
 
-                <div class="header-right">
-                    <div class="hours-pill">
-                        <span class="hours-dot"></span>
-                        <span>17:00–23:00</span>
-                    </div>
-                    <button type="button" class="btn btn-secondary btn-sm" id="open-builder-btn">
-                        Monte o Seu
+                <nav class="nav-center-links" aria-label="Navegação principal">
+                    <a href="#home">Home</a>
+                    <a href="#menu">Menu</a>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#loja">Loja</a>
+                </nav>
+
+                <div class="nav-right-icons">
+                    <button type="button" class="icon-btn" id="toggle-search-btn" aria-label="Buscar no cardápio" title="Buscar">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
                     </button>
-                    <a class="btn btn-primary btn-sm" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Gostaria%20de%20fazer%20um%20pedido%20no%20CB%20Chefe%27s%20Burguer." target="_blank" rel="noopener noreferrer">
-                        WhatsApp
+
+                    <a class="icon-btn" href="#loja" aria-label="Perfil e informações da loja" title="Loja e Endereço">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
                     </a>
+
+                    <button type="button" class="icon-btn" id="header-cart-btn" aria-label="Abrir carrinho" title="Carrinho">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-badge-count" id="header-cart-badge">0</span>
+                    </button>
                 </div>
             </div>
-        </div>
 
-        <div class="top-tabs-wrap">
-            <div class="container">
-                <nav class="top-tabs" role="tablist" aria-label="Abas do aplicativo">
-                    <button type="button" class="tab-btn active" role="tab" data-tab="inicio">Início</button>
-                    <button type="button" class="tab-btn" role="tab" data-tab="cardapio">Cardápio</button>
-                    <button type="button" class="tab-btn" role="tab" data-tab="combos">Combos</button>
-                    <button type="button" class="tab-btn" role="tab" data-tab="avaliacoes">Avaliações</button>
-                    <button type="button" class="tab-btn" role="tab" data-tab="perfil">Perfil</button>
-                </nav>
+            <div class="quick-search-drawer" id="quick-search-drawer">
+                <div class="quick-search-row">
+                    <input type="search" id="quick-search-input" class="quick-search-input" placeholder="Buscar hambúrguer, combo, porção ou bebida..." aria-label="Busca rápida">
+                    <button type="button" class="btn-dark-border btn-orange-sm" id="clear-search-btn">Limpar</button>
+                </div>
             </div>
         </div>
     </header>
 
-    <main class="container">
+    <main>
         <!-- =================================================================
-             ABA 1: INÍCIO (HERO + QUERIDINHOS DA CASA + COMBOS + AVALIAÇÕES + COMO CHEGAR)
+             HERO (2 COLUNAS NO DESKTOP, 1 COLUNA NO CELULAR)
              ================================================================= -->
-        <section id="tab-inicio" class="tab-view active" role="tabpanel">
-            <div class="hero">
-                <div class="status-strip">Aberto agora • Entrega 30-45 min • Grátis acima de R$ 60</div>
-                <div class="rating-badge">&#9733; 5.0 (90 avaliações) &bull; Parque Residencial J. Macedo</div>
-                <h1>Hambúrguer artesanal no <span>ponto certo</span> em Rio Preto.</h1>
-                <p class="hero-lead">
-                    CB Chefe's Burguer • 17:00–23:00 • Média de R$ 40–60 por pessoa. Hambúrgueres artesanais, combos com 100g de batata e 1 refri lata, porções, menu infantil, happy hour e estacionamento no local.
-                </p>
-                <div class="hero-actions">
-                    <button type="button" class="btn btn-primary" data-go-tab="cardapio">Ver Cardápio</button>
-                    <button type="button" class="btn btn-secondary" id="hero-builder-btn">Monte o Seu</button>
-                    <button type="button" class="btn btn-secondary" data-go-tab="combos">Ver Combos</button>
-                </div>
-            </div>
+        <section class="hero-section" id="home">
+            <div class="container">
+                <div class="hero-grid">
+                    <!-- Coluna esquerda -->
+                    <div>
+                        <div class="hero-meta-line">
+                            <span class="hero-meta-star">&#9733; 5.0 (90 avaliações)</span>
+                            <span>•</span>
+                            <span>Aberto todos os dias 17h - 23h</span>
+                        </div>
 
-            <!-- Queridinhos da Casa -->
-            <div class="section-block">
-                <div class="section-header">
-                    <h2>Queridinhos da <span>Casa</span></h2>
-                    <p>Os destaques que não podem faltar no seu pedido.</p>
-                </div>
-                <div class="items-grid" id="queridinhos-grid"></div>
-            </div>
+                        <h1 class="hero-title">O HAMBÚRGUER ARTESANAL NO PONTO CERTO EM RIO PRETO</h1>
 
-            <!-- Combos na Home -->
-            <div class="section-block">
-                <div class="section-header">
-                    <h2>Combos em <span>Destaque</span></h2>
-                    <p>Lanche + 100g de batata + 1 refri lata com preço promocional.</p>
-                </div>
-                <div class="items-grid" id="home-combos-grid"></div>
-            </div>
-
-            <!-- Avaliações na Home -->
-            <div class="section-block">
-                <div class="section-header">
-                    <h2>O que dizem nossos <span>clientes</span></h2>
-                    <p>Nota 5.0 (90 avaliações) em São José do Rio Preto.</p>
-                </div>
-                <div class="reviews-grid" id="home-reviews-grid"></div>
-            </div>
-
-            <!-- Como chegar na Home -->
-            <div class="section-block">
-                <div class="section-header">
-                    <h2>Como <span>chegar</span></h2>
-                    <p>Av. José Piedade, 2051 - Sala 2 - Pq. Residencial J. Macedo, São José do Rio Preto - SP, 15040-667</p>
-                </div>
-                <div class="location-grid">
-                    <div class="location-box">
-                        <p class="info-block">
-                            <strong>Endereço:</strong><br>
-                            Av. José Piedade, 2051 - Sala 2 - Pq. Residencial J. Macedo, São José do Rio Preto - SP, 15040-667
+                        <p class="hero-subtitle">
+                            Blend suculento, pão brioche macio e molhos da casa. Feito na chapa, na hora, pra você.
                         </p>
-                        <p class="info-muted">
-                            Horário: 17:00–23:00 • Estacionamento no local, mesas ao ar livre e reservas.
+
+                        <div class="hero-cta-row">
+                            <a class="btn-orange" href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20no%20CB%20Chefe%27s%20Burguer." target="_blank" rel="noopener noreferrer">
+                                Pedir Agora
+                            </a>
+                            <a class="btn-ghost-white" href="#menu">
+                                Ver Cardápio &darr;
+                            </a>
+                        </div>
+
+                        <div class="hero-bottom-bar">
+                            <!-- 4 miniaturas clicáveis -->
+                            <div class="hero-thumbs" role="group" aria-label="Miniaturas de hambúrgueres em destaque">
+                                <button type="button" class="hero-thumb-btn active" data-hero-index="0" aria-label="Destaque Chef Costela">
+                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=300&q=80" alt="Chef Costela" onerror="this.src='https://placehold.co/120x120/141414/FF7A00?text=CB+1'">
+                                </button>
+                                <button type="button" class="hero-thumb-btn" data-hero-index="1" aria-label="Destaque Chef Duplo Brabo">
+                                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=300&q=80" alt="Chef Duplo Brabo" onerror="this.src='https://placehold.co/120x120/141414/FF7A00?text=CB+2'">
+                                </button>
+                                <button type="button" class="hero-thumb-btn" data-hero-index="2" aria-label="Destaque Chef No Smash">
+                                    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=300&q=80" alt="Chef No Smash" onerror="this.src='https://placehold.co/120x120/141414/FF7A00?text=CB+3'">
+                                </button>
+                                <button type="button" class="hero-thumb-btn" data-hero-index="3" aria-label="Destaque Chef Defumado">
+                                    <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f7?auto=format&fit=crop&w=300&q=80" alt="Chef Defumado" onerror="this.src='https://placehold.co/120x120/141414/FF7A00?text=CB+4'">
+                                </button>
+                            </div>
+
+                            <!-- Coração branco com contorno + contador iniciado em 42 -->
+                            <div class="hero-like-box">
+                                <button type="button" class="heart-like-btn" id="hero-like-btn" aria-label="Curtir hambúrguer em destaque" aria-pressed="false">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                                <span class="like-count-text" id="hero-like-count">42</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna direita: hambúrguer artesanal flutuando -->
+                    <div class="hero-visual-stage">
+                        <div class="hero-glow-ring">
+                            <img
+                                id="hero-showcase-img"
+                                class="hero-main-img"
+                                src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=85"
+                                alt="Hambúrguer artesanal com queijo derretendo, alface e tomate"
+                                onerror="this.src='https://placehold.co/600x600/141414/FF7A00?text=CB+CHEFE%27S+BURGUER'"
+                            >
+                        </div>
+
+                        <div class="hero-spotlight-caption">
+                            <div>
+                                <div class="spotlight-burger-name" id="hero-showcase-name">CHEF COSTELA</div>
+                                <span class="spotlight-burger-price" id="hero-showcase-price">R$ 39,90</span>
+                            </div>
+                            <a
+                                class="btn-orange btn-orange-sm"
+                                id="hero-quick-order-btn"
+                                href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Quero%20pedir%20o%20Chef%20Costela%20(R%24%2039%2C90)."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Pedir este
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             1. CARDÁPIO COM FILTROS DE CATEGORIA
+             ================================================================= -->
+        <section class="page-section" id="menu">
+            <div class="container">
+                <div class="section-head">
+                    <h2 class="section-title">Nosso <span>Cardápio</span></h2>
+                    <p class="section-sub">Feito na chapa na hora. Selecione uma categoria ou adicione direto ao carrinho.</p>
+                </div>
+
+                <div class="category-filters" role="tablist" aria-label="Categorias do cardápio">
+                    <button type="button" class="cat-pill active" data-cat="todos">Todos</button>
+                    <button type="button" class="cat-pill" data-cat="hamburgueres">Hambúrgueres</button>
+                    <button type="button" class="cat-pill" data-cat="porcoes">Porções</button>
+                    <button type="button" class="cat-pill" data-cat="kids">Menu Kids</button>
+                    <button type="button" class="cat-pill" data-cat="bebidas">Bebidas</button>
+                </div>
+
+                <div class="cards-grid" id="menu-cards-container"></div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             2. COMBOS COM PREÇO ANTIGO RISCADO
+             ================================================================= -->
+        <section class="page-section" id="combos">
+            <div class="container">
+                <div class="section-head">
+                    <h2 class="section-title">Combos <span>Especiais</span></h2>
+                    <p class="section-sub">Lanche + porção de batata + bebida com preço promocional.</p>
+                </div>
+
+                <div class="cards-grid" id="combos-cards-container"></div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             3. MONTE O SEU LANCHE
+             ================================================================= -->
+        <section class="page-section" id="sobre">
+            <div class="container">
+                <div class="section-head">
+                    <h2 class="section-title">Monte o Seu <span>Lanche</span></h2>
+                    <p class="section-sub">Escolha pão, blend, queijo e adicionais com cálculo em tempo real.</p>
+                </div>
+
+                <div class="builder-banner-card">
+                    <div>
+                        <div class="card-name">Personalize do seu jeito</div>
+                        <p class="card-short-desc">
+                            Pães Brioche, Australiano ou Parmeão • Blends Smash 90g, Blend 160g ou Frango Crocante • Queijos Prato, Cheddar ou Mussarela • Adicionais extras.
                         </p>
-                        <div class="hero-actions">
-                            <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Av.%20Jos%C3%A9%20Piedade%2C%202051%20-%20Sala%202%20-%20Pq.%20Residencial%20J.%20Macedo%2C%20S%C3%A3o%20Jos%C3%A9%20do%20Rio%20Preto%20-%20SP%2C%2015040-667" target="_blank" rel="noopener noreferrer">
+                        <div class="builder-summary-tags">
+                            <span class="builder-mini-tag">+ Bacon R$ 4,00</span>
+                            <span class="builder-mini-tag">+ Cheddar Cremoso R$ 3,00</span>
+                            <span class="builder-mini-tag">+ Onion Rings R$ 5,00</span>
+                            <span class="builder-mini-tag">+ Doritos R$ 4,00</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-orange" id="open-builder-modal-btn">
+                        Montar Lanche
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             4. AVALIAÇÕES
+             ================================================================= -->
+        <section class="page-section" id="avaliacoes">
+            <div class="container">
+                <div class="section-head">
+                    <h2 class="section-title">O que dizem nossos <span>clientes</span></h2>
+                    <p class="section-sub">Experiência artesanal em São José do Rio Preto.</p>
+                </div>
+
+                <div class="reviews-header-meta">&#9733; 5.0 (90 avaliações)</div>
+
+                <div class="reviews-grid">
+                    <article class="review-dark-card">
+                        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="review-comment">"Melhor smash de Rio Preto! Pão super macio, blend suculento e entrega no prazo."</p>
+                        <div class="review-author">Lucas M.</div>
+                    </article>
+
+                    <article class="review-dark-card">
+                        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="review-comment">"O Chef Costela é absurdo de bom. Molho da casa faz toda a diferença."</p>
+                        <div class="review-author">Mariana S.</div>
+                    </article>
+
+                    <article class="review-dark-card">
+                        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="review-comment">"Atendimento rápido pelo WhatsApp, porções caprichadas e lanche sempre quentinho."</p>
+                        <div class="review-author">Felipe R.</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             5. ENDEREÇO E CONTATO
+             ================================================================= -->
+        <section class="page-section" id="loja">
+            <div class="container">
+                <div class="section-head">
+                    <h2 class="section-title">Endereço e <span>Contato</span></h2>
+                    <p class="section-sub">Venha visitar a loja ou peça direto no WhatsApp.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="info-dark-panel">
+                        <div class="store-open-pill closed" id="store-status-pill" aria-live="polite">
+                            <span>&#9679;</span>
+                            <span id="store-status-label">Fechado • Abre às 17h</span>
+                        </div>
+
+                        <div class="info-label">Endereço</div>
+                        <p class="info-value" id="store-address-value">
+                            Av. Dr. Nilo Peçanha, 1050 - Parque Residencial J. Macedo, São José do Rio Prêto - SP
+                        </p>
+
+                        <div class="info-label">Horário de funcionamento</div>
+                        <p class="info-sub">Aberto todos os dias 17h - 23h</p>
+
+                        <div class="btn-stack">
+                            <a
+                                class="btn-orange"
+                                href="https://www.google.com/maps/search/?api=1&query=Av.%20Dr.%20Nilo%20Pe%C3%A7anha%2C%201050%20-%20Parque%20Residencial%20J.%20Macedo%2C%20S%C3%A3o%20Jos%C3%A9%20do%20Rio%20Pr%C3%AAto%20-%20SP"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 Abrir no Google Maps
                             </a>
-                            <button type="button" class="btn btn-secondary copy-address-trigger">
+                            <button type="button" class="btn-dark-border" id="copy-address-btn">
                                 Copiar endereço
                             </button>
                         </div>
-                        <div class="copy-feedback copy-address-msg" aria-live="polite"></div>
+                        <div class="copy-status-msg" id="address-copy-status" aria-live="polite"></div>
                     </div>
 
-                    <div class="location-box">
-                        <p class="info-block">
-                            <strong>WhatsApp:</strong> (17) 99662-4287<br>
-                            <strong>E-mail:</strong> chefmarcospereira.sp14@gmail.com
+                    <div class="info-dark-panel">
+                        <div class="info-label">WhatsApp Oficial</div>
+                        <p class="info-value">(17) 99662-4287</p>
+
+                        <p class="info-sub">
+                            Peça pelo WhatsApp ou ligue direto para tirar dúvidas e acompanhar seu pedido.
                         </p>
-                        <p class="info-muted">
-                            Aceitamos Pix, entrega, jantar, mesas ao ar livre, para levar e reservas.
-                        </p>
-                        <a class="btn btn-secondary" style="width: 100%;" href="https://wa.me/5517996624287" target="_blank" rel="noopener noreferrer">
-                            Chamar (17) 99662-4287
-                        </a>
+
+                        <div class="btn-stack">
+                            <a
+                                class="btn-orange"
+                                href="https://wa.me/5517996624287?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20no%20CB%20Chefe%27s%20Burguer."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Pedir no WhatsApp
+                            </a>
+                            <a class="btn-dark-border" href="tel:+5517996624287">
+                                Ligar para a loja
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =================================================================
-             ABA 2: CARDÁPIO (BUSCA, FILTROS, HAMBÚRGUERES, PORÇÕES, KIDS, BEBIDAS E ADICIONAIS)
-             ================================================================= -->
-        <section id="tab-cardapio" class="tab-view" role="tabpanel">
-            <div class="section-header">
-                <h2>Cardápio <span>Completo</span></h2>
-                <p>Busque por item, filtre por categoria ou adicione direto ao carrinho.</p>
-            </div>
-
-            <div class="controls-row">
-                <div class="search-box">
-                    <span class="search-icon">&#128269;</span>
-                    <input type="search" id="menu-search" class="search-input" placeholder="Buscar hambúrguer, porção ou ingrediente..." aria-label="Buscar no cardápio">
-                </div>
-
-                <div class="subfilter-pills" role="group" aria-label="Filtros do cardápio">
-                    <button type="button" class="pill-btn active" data-filter="todos">Todos</button>
-                    <button type="button" class="pill-btn" data-filter="burgers">Hambúrgueres</button>
-                    <button type="button" class="pill-btn" data-filter="porcoes">Porções</button>
-                    <button type="button" class="pill-btn" data-filter="kids">Menu Kids</button>
-                </div>
-            </div>
-
-            <div class="section-block">
-                <div class="section-header">
-                    <h2>Hambúrgueres <span>Artesanais</span></h2>
-                    <p>Combo padrão: 100g de batata e 1 refri lata.</p>
-                </div>
-                <div class="items-grid" id="catalog-burgers-grid"></div>
-            </div>
-
-            <div class="section-block">
-                <div class="section-header">
-                    <h2>Porções</h2>
-                    <p>Porções preparadas na hora para compartilhar.</p>
-                </div>
-                <div class="items-grid" id="catalog-porcoes-grid"></div>
-            </div>
-
-            <div class="section-block">
-                <div class="section-header">
-                    <h2>Menu <span>Kids</span></h2>
-                    <p>Opções especiais para as crianças.</p>
-                </div>
-                <div class="items-grid" id="catalog-kids-grid"></div>
-            </div>
-
-            <div class="section-block" id="sec-bebidas">
-                <div class="section-header">
-                    <h2>Bebidas e <span>Monte do Seu Jeito</span></h2>
-                    <p>Cervejas, refrigerantes, águas, sucos e adicionais oficiais do cardápio.</p>
-                </div>
-                <div class="extra-grid" id="catalog-drinks-addons-grid"></div>
-            </div>
-        </section>
-
-        <!-- =================================================================
-             ABA 3: COMBOS
-             ================================================================= -->
-        <section id="tab-combos" class="tab-view" role="tabpanel">
-            <div class="section-header">
-                <h2>Combos <span>CB Chefe's</span></h2>
-                <p>Lanche + 100g de batata e 1 refri lata (ou combo infantil).</p>
-            </div>
-            <div class="combo-banner">
-                COMBO PADRÃO: 100g DE BATATA E 1 REFRI LATA • ABERTO DAS 17:00 ÀS 23:00
-            </div>
-            <div class="items-grid" id="tab-combos-grid"></div>
-        </section>
-
-        <!-- =================================================================
-             ABA 4: AVALIAÇÕES, PONTO DA CARNE E SERVIÇOS
-             ================================================================= -->
-        <section id="tab-avaliacoes" class="tab-view" role="tabpanel">
-            <div class="section-header">
-                <h2>Avaliações • <span>5.0 (90 avaliações)</span></h2>
-                <p>O que dizem nossos clientes, serviços disponíveis e ponto da carne.</p>
-            </div>
-
-            <div class="reviews-grid" id="tab-reviews-grid"></div>
-
-            <div class="section-block">
-                <div class="section-header">
-                    <h2>Serviços e <span>Facilidades</span></h2>
-                    <p>Tudo o que oferecemos no CB Chefe's Burguer.</p>
-                </div>
-                <div class="services-grid">
-                    <div class="service-item"><span class="service-check">&#10003;</span> Aceitamos Pix</div>
-                    <div class="service-item"><span class="service-check">&#10003;</span> Entrega</div>
-                    <div class="service-item"><span class="service-check">&#10003;</span> Jantar</div>
-                    <div class="service-item"><span class="service-check">&#10003;</span> Mesas ao ar livre</div>
-                    <div class="service-item"><span class="service-check">&#10003;</span> Para levar</div>
-                    <div class="service-item"><span class="service-check">&#10003;</span> Reservas</div>
-                    <div class="service-item"><span class="service-check">&#10003;</span> Estacionamento no local</div>
-                    <div class="service-item"><span class="service-check">&#10003;</span> Happy hour</div>
-                    <div class="service-item"><span class="service-check">&#10003;</span> Menu infantil</div>
-                </div>
-            </div>
-
-            <div class="section-block">
-                <div class="section-header">
-                    <h2>Ponto da <span>Carne</span></h2>
-                    <p>Escolha como prefere o preparo do seu blend artesanal.</p>
-                </div>
-                <div class="doneness-grid">
-                    <div class="doneness-card">
-                        <h3>Mal Passado</h3>
-                        <p>Selado por fora e vermelho por dentro. Mais suculenta e macia.</p>
-                    </div>
-                    <div class="doneness-card">
-                        <h3>Ao Ponto</h3>
-                        <p>Levemente rosado por dentro. Equilíbrio perfeito entre sabor e suculência.</p>
-                    </div>
-                    <div class="doneness-card">
-                        <h3>Bem Passado</h3>
-                        <p>Totalmente grelhado por dentro. Menos suculenta e mais firme.</p>
-                    </div>
-                </div>
-                <div class="blend-note">
-                    Nosso hambúrguer artesanal possui blend especial e pode apresentar coloração rosada dependendo do ponto escolhido. Tem dúvida? Pergunte para nossa equipe!
-                </div>
-            </div>
-        </section>
-
-        <!-- =================================================================
-             ABA 5: PERFIL E COMO CHEGAR
-             ================================================================= -->
-        <section id="tab-perfil" class="tab-view" role="tabpanel">
-            <div class="section-header">
-                <h2>Perfil e <span>Como Chegar</span></h2>
-                <p>Informações oficiais do CB Chefe's Burguer em São José do Rio Preto.</p>
-            </div>
-
-            <div class="location-grid">
-                <div class="location-box">
-                    <p class="info-block">
-                        <strong>CB Chefe's Burguer</strong> • &#9733; 5.0 (90 avaliações)<br>
-                        <strong>Endereço:</strong> Av. José Piedade, 2051 - Sala 2 - Pq. Residencial J. Macedo, São José do Rio Preto - SP, 15040-667
-                    </p>
-                    <p class="info-block">
-                        <strong>Horário:</strong> 17:00–23:00
-                    </p>
-                    <div class="hero-actions">
-                        <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Av.%20Jos%C3%A9%20Piedade%2C%202051%20-%20Sala%202%20-%20Pq.%20Residencial%20J.%20Macedo%2C%20S%C3%A3o%20Jos%C3%A9%20do%20Rio%20Preto%20-%20SP%2C%2015040-667" target="_blank" rel="noopener noreferrer">
-                            Abrir no Google Maps
-                        </a>
-                        <button type="button" class="btn btn-secondary copy-address-trigger">
-                            Copiar endereço
-                        </button>
-                    </div>
-                    <div class="copy-feedback copy-address-msg" aria-live="polite"></div>
-                </div>
-
-                <div class="location-box">
-                    <p class="info-block">
-                        <strong>WhatsApp:</strong> (17) 99662-4287<br>
-                        <strong>E-mail:</strong> <a href="mailto:chefmarcospereira.sp14@gmail.com" style="color: var(--accent-hover); text-decoration: none;">chefmarcospereira.sp14@gmail.com</a>
-                    </p>
-                    <p class="info-muted">
-                        Serviços: Aceitamos Pix, Entrega, Jantar, Mesas ao ar livre, Para levar, Reservas, estacionamento no local, happy hour e menu infantil.
-                    </p>
-                    <button type="button" class="btn btn-secondary" style="width: 100%; margin-bottom: 10px;" id="profile-open-cart-btn">
-                        Abrir Carrinho de Pedidos
-                    </button>
-                    <a class="btn btn-primary" style="width: 100%;" href="https://wa.me/5517996624287" target="_blank" rel="noopener noreferrer">
-                        Falar no WhatsApp (17) 99662-4287
-                    </a>
                 </div>
             </div>
         </section>
@@ -1609,1021 +1433,697 @@
 
     <footer>
         <div class="container">
-            CB CHEFE'S BURGUER &bull; Av. José Piedade, 2051 - Sala 2 - Pq. Residencial J. Macedo, São José do Rio Preto - SP, 15040-667 &bull; 17:00–23:00
+            CB CHEFE'S BURGUER &bull; Av. Dr. Nilo Peçanha, 1050 - Parque Residencial J. Macedo, São José do Rio Prêto - SP &bull; Aberto todos os dias 17h - 23h
         </div>
     </footer>
 
-    <!-- Botão Flutuante Fixo do Carrinho -->
-    <div class="floating-cart-bar" id="floating-cart-bar">
-        <button type="button" class="floating-cart-btn" id="open-cart-btn">
-            <span id="floating-cart-label">Ver carrinho - 0 itens - R$ 0,00</span>
-            <span>Abrir &rarr;</span>
+    <!-- =====================================================================
+         BOTÃO FLUTUANTE DO CARRINHO
+         ===================================================================== -->
+    <div class="floating-cart-wrap" id="floating-cart-wrap">
+        <button type="button" class="floating-cart-btn" id="open-cart-modal-btn">
+            <span id="floating-cart-text">Ver carrinho - 0 itens - R$ 0,00</span>
+            <span>Ver pedido &rsaquo;</span>
         </button>
     </div>
 
-    <!-- Drawer Lateral / Modal do Carrinho -->
-    <div class="drawer-backdrop" id="cart-drawer" role="dialog" aria-modal="true" aria-label="Carrinho de compras">
-        <div class="drawer-panel">
-            <div>
-                <div class="drawer-header">
-                    <h3>Seu Carrinho</h3>
-                    <button type="button" class="close-btn" id="close-cart-btn" aria-label="Fechar carrinho">&times;</button>
-                </div>
-
-                <div class="cart-items-list" id="cart-items-list"></div>
-
-                <div class="coupon-box">
-                    <input type="text" id="coupon-input" class="coupon-input" placeholder="Cupom (ex: BEMVINDO10)" aria-label="Código de cupom">
-                    <button type="button" class="btn btn-secondary btn-sm" id="apply-coupon-btn">Aplicar</button>
-                </div>
-                <div class="coupon-msg" id="coupon-msg" aria-live="polite"></div>
-
-                <input type="text" id="cart-obs-input" class="obs-input" placeholder="Observações (ex: ponto da carne, tirar cebola, troco...)" aria-label="Observações do pedido">
+    <!-- =====================================================================
+         MODAL: MONTE O SEU LANCHE
+         ===================================================================== -->
+    <div class="modal-overlay" id="builder-modal" role="dialog" aria-modal="true" aria-labelledby="builder-modal-title">
+        <div class="modal-box">
+            <div class="modal-top">
+                <h3 id="builder-modal-title">Monte o Seu Lanche</h3>
+                <button type="button" class="modal-close" id="close-builder-modal" aria-label="Fechar">&times;</button>
             </div>
 
-            <div>
-                <div class="summary-lines">
-                    <div class="summary-row">
-                        <span>Subtotal</span>
-                        <span id="cart-subtotal">R$ 0,00</span>
-                    </div>
-                    <div class="summary-row" id="cart-discount-row" style="display: none; color: #86efac;">
-                        <span>Desconto (BEMVINDO10 - 10%)</span>
-                        <span id="cart-discount">- R$ 0,00</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>Taxa de entrega</span>
-                        <span id="cart-delivery">R$ 6,00</span>
-                    </div>
-                    <div class="summary-row total">
-                        <span>Total</span>
-                        <strong id="cart-total">R$ 0,00</strong>
-                    </div>
+            <div class="option-block">
+                <span class="option-block-title">1. Pão</span>
+                <div class="choice-grid" id="pao-options">
+                    <button type="button" class="choice-card-btn selected" data-pao="Brioche">Brioche<small>Incluso</small></button>
+                    <button type="button" class="choice-card-btn" data-pao="Australiano">Australiano<small>Incluso</small></button>
+                    <button type="button" class="choice-card-btn" data-pao="Parmeão">Parmeão<small>Incluso</small></button>
                 </div>
-
-                <a class="btn btn-primary" style="width: 100%;" id="checkout-whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer">
-                    Finalizar pedido no WhatsApp
-                </a>
             </div>
-        </div>
-    </div>
 
-    <!-- Modal Monte o Seu Lanche -->
-    <div class="modal-backdrop" id="builder-modal" role="dialog" aria-modal="true" aria-labelledby="builder-modal-title">
-        <div class="modal-sheet">
-            <div class="modal-header">
+            <div class="option-block">
+                <span class="option-block-title">2. Blend</span>
+                <div class="choice-grid" id="blend-options">
+                    <button type="button" class="choice-card-btn selected" data-blend="Smash 90g" data-price="24.00">Smash 90g<small>R$ 24,00</small></button>
+                    <button type="button" class="choice-card-btn" data-blend="Blend 160g" data-price="29.00">Blend 160g<small>R$ 29,00</small></button>
+                    <button type="button" class="choice-card-btn" data-blend="Frango Crocante" data-price="26.00">Frango Crocante<small>R$ 26,00</small></button>
+                </div>
+            </div>
+
+            <div class="option-block">
+                <span class="option-block-title">3. Queijo</span>
+                <div class="choice-grid" id="queijo-options">
+                    <button type="button" class="choice-card-btn selected" data-queijo="Prato">Prato<small>Incluso</small></button>
+                    <button type="button" class="choice-card-btn" data-queijo="Cheddar">Cheddar<small>Incluso</small></button>
+                    <button type="button" class="choice-card-btn" data-queijo="Mussarela">Mussarela<small>Incluso</small></button>
+                </div>
+            </div>
+
+            <div class="option-block">
+                <span class="option-block-title">4. Adicionais</span>
+                <label class="extra-row">
+                    <span><input type="checkbox" class="builder-extra-chk" data-name="Bacon" data-price="4.00"> + Bacon</span>
+                    <strong class="price-orange">R$ 4,00</strong>
+                </label>
+                <label class="extra-row">
+                    <span><input type="checkbox" class="builder-extra-chk" data-name="Cheddar Cremoso" data-price="3.00"> + Cheddar Cremoso</span>
+                    <strong class="price-orange">R$ 3,00</strong>
+                </label>
+                <label class="extra-row">
+                    <span><input type="checkbox" class="builder-extra-chk" data-name="Onion Rings" data-price="5.00"> + Onion Rings</span>
+                    <strong class="price-orange">R$ 5,00</strong>
+                </label>
+                <label class="extra-row">
+                    <span><input type="checkbox" class="builder-extra-chk" data-name="Doritos" data-price="4.00"> + Doritos</span>
+                    <strong class="price-orange">R$ 4,00</strong>
+                </label>
+            </div>
+
+            <div class="card-bottom-row">
                 <div>
-                    <span class="card-tag">Personalização</span>
-                    <h3 id="builder-modal-title">Monte o Seu Lanche</h3>
+                    <span style="font-size: 11px; color: var(--text-secondary); display: block; text-transform: uppercase;">Total</span>
+                    <strong class="price-orange" style="font-size: 20px;" id="builder-live-total">R$ 24,00</strong>
                 </div>
-                <button type="button" class="close-btn" id="close-builder-btn" aria-label="Fechar modal">&times;</button>
-            </div>
-
-            <div class="builder-group">
-                <span class="builder-label">1. Escolha o Pão</span>
-                <div class="builder-grid" id="builder-bread-grid">
-                    <button type="button" class="choice-pill active" data-bread="Brioche" data-extra="0">Brioche<small>Incluso</small></button>
-                    <button type="button" class="choice-pill" data-bread="Australiano" data-extra="0">Australiano<small>Incluso</small></button>
-                    <button type="button" class="choice-pill" data-bread="Parmeão" data-extra="0">Parmeão<small>Incluso</small></button>
-                </div>
-            </div>
-
-            <div class="builder-group">
-                <span class="builder-label">2. Escolha o Blend</span>
-                <div class="builder-grid" id="builder-blend-grid">
-                    <button type="button" class="choice-pill active" data-blend="Smash 90g" data-price="24.00">Smash 90g<small>R$ 24,00</small></button>
-                    <button type="button" class="choice-pill" data-blend="Blend 160g" data-price="29.00">Blend 160g<small>R$ 29,00</small></button>
-                    <button type="button" class="choice-pill" data-blend="Frango Crocante" data-price="26.00">Frango Crocante<small>R$ 26,00</small></button>
-                </div>
-            </div>
-
-            <div class="builder-group">
-                <span class="builder-label">3. Escolha o Queijo</span>
-                <div class="builder-grid" id="builder-cheese-grid">
-                    <button type="button" class="choice-pill active" data-cheese="Prato" data-extra="0">Prato<small>Incluso</small></button>
-                    <button type="button" class="choice-pill" data-cheese="Cheddar" data-extra="0">Cheddar<small>Incluso</small></button>
-                    <button type="button" class="choice-pill" data-cheese="Mussarela" data-extra="0">Mussarela<small>Incluso</small></button>
-                </div>
-            </div>
-
-            <div class="builder-group">
-                <span class="builder-label">4. Adicionais</span>
-                <label class="addon-check-item">
-                    <span class="addon-check-left">
-                        <input type="checkbox" class="builder-addon" data-name="Bacon" data-price="4.00">
-                        <span>+ Bacon</span>
-                    </span>
-                    <strong style="color: var(--accent-hover);">R$ 4,00</strong>
-                </label>
-                <label class="addon-check-item">
-                    <span class="addon-check-left">
-                        <input type="checkbox" class="builder-addon" data-name="Cheddar Cremoso" data-price="3.00">
-                        <span>+ Cheddar Cremoso</span>
-                    </span>
-                    <strong style="color: var(--accent-hover);">R$ 3,00</strong>
-                </label>
-                <label class="addon-check-item">
-                    <span class="addon-check-left">
-                        <input type="checkbox" class="builder-addon" data-name="Onion Rings" data-price="5.00">
-                        <span>+ Onion Rings</span>
-                    </span>
-                    <strong style="color: var(--accent-hover);">R$ 5,00</strong>
-                </label>
-                <label class="addon-check-item">
-                    <span class="addon-check-left">
-                        <input type="checkbox" class="builder-addon" data-name="Doritos" data-price="4.00">
-                        <span>+ Doritos</span>
-                    </span>
-                    <strong style="color: var(--accent-hover);">R$ 4,00</strong>
-                </label>
-            </div>
-
-            <div class="modal-footer">
-                <div>
-                    <span class="modal-total-lbl">Total do lanche</span>
-                    <span class="modal-total-val" id="builder-total-price">R$ 24,00</span>
-                </div>
-                <button type="button" class="btn btn-primary" id="builder-add-cart-btn">
+                <button type="button" class="btn-orange" id="confirm-builder-cart-btn">
                     Adicionar ao carrinho
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Menu Inferior Fixo -->
-    <nav class="bottom-nav" aria-label="Menu inferior">
-        <button type="button" class="bottom-nav-btn active" data-tab="inicio">
-            <span>&#127968;</span>
-            <span>Início</span>
-        </button>
-        <button type="button" class="bottom-nav-btn" data-tab="cardapio">
-            <span>&#127828;</span>
-            <span>Cardápio</span>
-        </button>
-        <button type="button" class="bottom-nav-btn" id="bottom-pedidos-btn">
-            <span>&#128722;</span>
-            <span>Pedidos</span>
-        </button>
-        <button type="button" class="bottom-nav-btn" data-tab="avaliacoes">
-            <span>&#11088;</span>
-            <span>Avaliações</span>
-        </button>
-        <button type="button" class="bottom-nav-btn" data-tab="perfil">
-            <span>&#128100;</span>
-            <span>Perfil</span>
-        </button>
-    </nav>
+    <!-- =====================================================================
+         MODAL: CARRINHO DE COMPRAS
+         ===================================================================== -->
+    <div class="modal-overlay" id="cart-modal" role="dialog" aria-modal="true" aria-labelledby="cart-modal-title">
+        <div class="modal-box">
+            <div class="modal-top">
+                <h3 id="cart-modal-title">Seu Carrinho</h3>
+                <button type="button" class="modal-close" id="close-cart-modal" aria-label="Fechar carrinho">&times;</button>
+            </div>
+
+            <div id="cart-items-container"></div>
+
+            <div class="coupon-flex">
+                <input type="text" id="coupon-code-input" class="coupon-input" placeholder="Cupom (ex: BEMVINDO10)" aria-label="Cupom de desconto">
+                <button type="button" class="btn-dark-border btn-orange-sm" id="apply-coupon-btn">Aplicar</button>
+            </div>
+            <div class="copy-status-msg" id="coupon-status-msg" aria-live="polite"></div>
+
+            <div class="totals-summary">
+                <div class="totals-row">
+                    <span>Subtotal</span>
+                    <span id="summary-subtotal">R$ 0,00</span>
+                </div>
+                <div class="totals-row" id="summary-discount-row" style="display: none; color: #4ade80;">
+                    <span>Desconto (BEMVINDO10 - 10%)</span>
+                    <span id="summary-discount">- R$ 0,00</span>
+                </div>
+                <div class="totals-row">
+                    <span>Taxa de entrega (grátis acima de R$ 60)</span>
+                    <span id="summary-delivery">R$ 0,00</span>
+                </div>
+                <div class="totals-row final">
+                    <span>Total</span>
+                    <strong id="summary-total">R$ 0,00</strong>
+                </div>
+            </div>
+
+            <a
+                class="btn-orange"
+                style="width: 100%;"
+                id="finalize-whatsapp-btn"
+                href="https://wa.me/5517996624287"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Finalizar pedido no WhatsApp
+            </a>
+        </div>
+    </div>
 
     <script>
         (function () {
-            const WHATSAPP_PHONE = "5517996624287";
-            const FULL_ADDRESS = "Av. José Piedade, 2051 - Sala 2 - Pq. Residencial J. Macedo, São José do Rio Preto - SP, 15040-667";
+            const WHATSAPP_NUMBER = "5517996624287";
+            const STORE_ADDRESS = "Av. Dr. Nilo Peçanha, 1050 - Parque Residencial J. Macedo, São José do Rio Prêto - SP";
             const DELIVERY_FEE = 6.00;
-            const FREE_DELIVERY_MIN = 60.00;
+            const FREE_DELIVERY_THRESHOLD = 60.00;
 
-            // Dados oficiais dos hambúrgueres
-            const burgers = [
+            function formatBRL(value) {
+                return "R$ " + Number(value || 0).toFixed(2).replace(".", ",");
+            }
+
+            // =================================================================
+            // HERO: 4 MINIATURAS INTERATIVAS + CURTIDAS (INICIANDO EM 42)
+            // =================================================================
+            const heroSpotlights = [
+                {
+                    name: "CHEF COSTELA",
+                    price: 39.90,
+                    img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=85",
+                    waMsg: "Olá! Quero pedir o Chef Costela (R$ 39,90)."
+                },
+                {
+                    name: "CHEF DUPLO BRABO",
+                    price: 45.90,
+                    img: "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=900&q=85",
+                    waMsg: "Olá! Quero pedir o Chef Duplo Brabo (R$ 45,90)."
+                },
+                {
+                    name: "CHEF NO SMASH",
+                    price: 32.90,
+                    img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=900&q=85",
+                    waMsg: "Olá! Quero pedir o Chef No Smash (R$ 32,90)."
+                },
+                {
+                    name: "CHEF DEFUMADO",
+                    price: 39.90,
+                    img: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f7?auto=format&fit=crop&w=900&q=85",
+                    waMsg: "Olá! Quero pedir o Chef Defumado (R$ 39,90)."
+                }
+            ];
+
+            const heroShowcaseImg = document.getElementById("hero-showcase-img");
+            const heroShowcaseName = document.getElementById("hero-showcase-name");
+            const heroShowcasePrice = document.getElementById("hero-showcase-price");
+            const heroQuickOrderBtn = document.getElementById("hero-quick-order-btn");
+            const thumbBtns = document.querySelectorAll(".hero-thumb-btn");
+
+            thumbBtns.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    const idx = Number(btn.getAttribute("data-hero-index"));
+                    const item = heroSpotlights[idx];
+                    if (!item) return;
+
+                    thumbBtns.forEach((b) => b.classList.remove("active"));
+                    btn.classList.add("active");
+
+                    heroShowcaseImg.src = item.img;
+                    heroShowcaseImg.alt = item.name;
+                    heroShowcaseName.textContent = item.name;
+                    heroShowcasePrice.textContent = formatBRL(item.price);
+                    heroQuickOrderBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(item.waMsg)}`;
+                });
+            });
+
+            const likeBtn = document.getElementById("hero-like-btn");
+            const likeCountEl = document.getElementById("hero-like-count");
+            let likesCount = 42;
+            let hasLiked = false;
+
+            if (likeBtn && likeCountEl) {
+                likeBtn.addEventListener("click", () => {
+                    hasLiked = !hasLiked;
+                    likesCount = hasLiked ? likesCount + 1 : likesCount - 1;
+                    likeBtn.classList.toggle("liked", hasLiked);
+                    likeBtn.setAttribute("aria-pressed", String(hasLiked));
+                    likeCountEl.textContent = String(likesCount);
+                });
+            }
+
+            // =================================================================
+            // CARDÁPIO E COMBOS COM FOTOS REAIS
+            // =================================================================
+            const menuCatalog = [
                 {
                     id: "chef-classico",
-                    tag: "Hambúrguer",
-                    seal: "Nº1 MAIS PEDIDO",
+                    cat: "hamburgueres",
                     name: "Chef Clássico",
                     desc: "Pão brioche, hambúrguer, queijo prato, alface, tomate, cebola roxa e maionese da casa.",
-                    lanchePrice: 26.90,
-                    comboPrice: 37.90,
-                    icon: "🍔"
-                },
-                {
-                    id: "chef-original",
-                    tag: "Hambúrguer",
-                    name: "Chef Original da Casa",
-                    desc: "Pão australiano, hambúrguer, 1 fatia de queijo tipo mussarela, rúcula, cebola caramelizada, geleia de abacaxi com e maionese do chef.",
-                    lanchePrice: 31.90,
-                    comboPrice: 42.90,
-                    icon: "🍔"
-                },
-                {
-                    id: "chef-raiz",
-                    tag: "Hambúrguer",
-                    name: "Chef Raiz",
-                    desc: "Pão brioche, hambúrguer, 1 fatia de queijo tipo mussarela, alface, tomate, cebola roxa e maionese do chef.",
-                    lanchePrice: 31.90,
-                    comboPrice: 42.90,
-                    icon: "🍔"
-                },
-                {
-                    id: "chef-picante",
-                    tag: "Hambúrguer",
-                    seal: "NOVO",
-                    name: "Chef Picante",
-                    desc: "Pão brioche, hambúrguer, 1 fatia de queijo tipo mussarela, rúcula, cebola crispy e geleia de abacaxi com pimenta.",
-                    lanchePrice: 31.90,
-                    comboPrice: 42.90,
-                    icon: "🌶️"
-                },
-                {
-                    id: "chef-crispy-especial",
-                    tag: "Frango Crispy",
-                    name: "Chef Crispy Especial",
-                    desc: "Pão brioche, hambúrguer de frango empanado, queijo prato, alface, tomate e maionese verde.",
-                    lanchePrice: 31.90,
-                    comboPrice: 42.90,
-                    icon: "🍗"
-                },
-                {
-                    id: "chef-crispy-mostarda-mel",
-                    tag: "Frango Crispy",
-                    name: "Chef Crispy Mostarda e Mel",
-                    desc: "Pão brioche, hambúrguer de frango empanado, queijo mussarela, alface, picles e molho mostarda e mel.",
-                    lanchePrice: 31.90,
-                    comboPrice: 42.90,
-                    icon: "🍯"
+                    price: 26.90,
+                    img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
                 },
                 {
                     id: "chef-no-smash",
-                    tag: "Smash",
+                    cat: "hamburgueres",
                     name: "Chef No Smash",
-                    desc: "Pão brioche, 2 hambúrgueres smash, 2 fatias de bacon, 2 fatias de queijo tipo cheddar e maionese do chef.",
-                    lanchePrice: 32.90,
-                    comboPrice: 43.90,
-                    icon: "🔥"
-                },
-                {
-                    id: "chef-bacon-crocante",
-                    tag: "Hambúrguer",
-                    name: "Chef Bacon Crocante",
-                    desc: "Pão brioche, hambúrguer, 1 fatia de queijo tipo cheddar, 2 fatias de bacon, cebola caramelizada, tomate, alface, requeijão cremoso e maionese do chef.",
-                    lanchePrice: 39.90,
-                    comboPrice: 50.90,
-                    icon: "🥓"
-                },
-                {
-                    id: "chef-defumado",
-                    tag: "Hambúrguer",
-                    name: "Chef Defumado",
-                    desc: "Pão australiano, hambúrguer, 1 fatia de queijo tipo provolone, 2 fatias de bacon, rúcula, cebola caramelizada, molho barbecue e maionese do chef.",
-                    lanchePrice: 39.90,
-                    comboPrice: 50.90,
-                    icon: "🔥"
-                },
-                {
-                    id: "chef-geleia-bacon",
-                    tag: "Hambúrguer",
-                    name: "Chef Geleia Bacon",
-                    desc: "Pão brioche, hambúrguer, queijo provolone, alface, tomate e geleia de bacon.",
-                    lanchePrice: 39.90,
-                    comboPrice: 50.90,
-                    icon: "🥓"
+                    desc: "Pão brioche, 2 hambúrgueres smash, 2 fatias de bacon, 2 fatias de cheddar e maionese do chef.",
+                    price: 32.90,
+                    img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=700&q=80"
                 },
                 {
                     id: "chef-costela",
-                    tag: "Hambúrguer de Costela",
-                    seal: "DO CHEFE",
+                    cat: "hamburgueres",
                     name: "Chef Costela",
-                    desc: "Hambúrguer de costela, queijo provolone, bacon, rúcula, chimichurri da casa e maionese da casa.",
-                    lanchePrice: 39.90,
-                    comboPrice: 50.90,
-                    icon: "🥩"
+                    desc: "Hambúrguer de costela, queijo provolone, bacon, rúcula, chimichurri e maionese da casa.",
+                    price: 39.90,
+                    img: "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=80"
                 },
                 {
                     id: "chef-duplo-brabo",
-                    tag: "Duplo",
+                    cat: "hamburgueres",
                     name: "Chef Duplo Brabo",
-                    desc: "Pão brioche, 2 hambúrgueres, 2 fatias de queijo mussarela, 2 fatias de bacon, rúcula, requeijão cremoso, cebola caramelizada e molho barbecue.",
-                    lanchePrice: 45.90,
-                    comboPrice: 56.90,
-                    icon: "🍔"
-                }
-            ];
-
-            // Porções oficiais
-            const porcoes = [
-                { id: "p-34", tag: "Porção • Cód. 34", name: "34 - Batata Palito Porção (500gr)", desc: "500gr batata palito.", price: 34.90, icon: "🍟" },
-                { id: "p-35", tag: "Porção • Cód. 35", name: "35 - Batata Rústica Porção (500gr)", desc: "500gr batata rústica.", price: 39.90, icon: "🥔" },
-                { id: "p-36", tag: "Porção • Cód. 36", name: "36 - Batata Cheddar e Bacon Porção (500gr)", desc: "500gr batata palito, cheddar e bacon.", price: 44.90, icon: "🧀" },
-                { id: "p-37", tag: "Porção • Cód. 37", name: "37 - Anéis de Cebola Porção (400gr)", desc: "400gr anéis de cebola.", price: 39.90, icon: "🧅" },
-                { id: "p-42", tag: "Porção • Cód. 42", name: "42 - Batata Kids Porção (250gr)", desc: "250gr batata carinha.", price: 17.90, icon: "🍟" }
-            ];
-
-            // Menu Kids oficial
-            const kidsItems = [
-                { id: "kids-1", tag: "Menu Kids", name: "Chef Kids", desc: "Pão, hambúrguer artesanal, queijo e maionese.", price: 19.90, icon: "🧒" },
-                { id: "kids-2", tag: "Menu Kids", name: "Combo Chef Kids", desc: "Chef Kids + Batata Carinha + Suco Kapo.", price: 21.90, icon: "🧃" }
-            ];
-
-            // 3 Combos promocionais (Lanche + 100g de batata + 1 refri lata)
-            const featuredCombos = [
-                {
-                    id: "combo-promo-1",
-                    tag: "Combo • 100g Batata + 1 Refri Lata",
-                    name: "Combo Chef Clássico",
-                    desc: "Chef Clássico (pão brioche, hambúrguer, queijo prato, alface, tomate, cebola roxa e maionese da casa) + 100g de batata + 1 refri lata.",
-                    oldPrice: 37.90,
-                    price: 32.90,
-                    icon: "🍟"
+                    desc: "Pão brioche, 2 hambúrgueres, 2 mussarelas, 2 bacons, rúcula, requeijão, cebola caramelizada e barbecue.",
+                    price: 45.90,
+                    img: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f7?auto=format&fit=crop&w=700&q=80"
                 },
                 {
-                    id: "combo-promo-2",
-                    tag: "Combo • 100g Batata + 1 Refri Lata",
-                    name: "Combo Chef No Smash",
-                    desc: "Chef No Smash (pão brioche, 2 hambúrgueres smash, 2 fatias de bacon, 2 fatias de queijo tipo cheddar e maionese do chef) + 100g de batata + 1 refri lata.",
-                    oldPrice: 43.90,
-                    price: 38.90,
-                    icon: "🍟"
+                    id: "porcao-batata-palito",
+                    cat: "porcoes",
+                    name: "Batata Palito (500g)",
+                    desc: "Porção caprichada de batata palito crocante na hora.",
+                    price: 34.90,
+                    img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80"
                 },
                 {
-                    id: "combo-promo-3",
-                    tag: "Combo • 100g Batata + 1 Refri Lata",
-                    name: "Combo Chef Costela",
-                    desc: "Chef Costela (hambúrguer de costela, queijo provolone, bacon, rúcula, chimichurri da casa e maionese da casa) + 100g de batata + 1 refri lata.",
-                    oldPrice: 50.90,
+                    id: "porcao-cheddar-bacon",
+                    cat: "porcoes",
+                    name: "Batata Cheddar e Bacon (500g)",
+                    desc: "Batata palito dourada coberta com cheddar cremoso e bacon.",
                     price: 44.90,
-                    icon: "🍟"
+                    img: "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?auto=format&fit=crop&w=700&q=80"
+                },
+                {
+                    id: "chef-kids",
+                    cat: "kids",
+                    name: "Chef Kids",
+                    desc: "Pão macio, hambúrguer artesanal, queijo e maionese.",
+                    price: 19.90,
+                    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+                },
+                {
+                    id: "combo-chef-kids",
+                    cat: "kids",
+                    name: "Combo Chef Kids",
+                    desc: "Chef Kids + batata carinha + suco Kapo.",
+                    price: 21.90,
+                    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+                },
+                {
+                    id: "coca-cola-lata",
+                    cat: "bebidas",
+                    name: "Coca-Cola Lata",
+                    desc: "Lata 350ml trincando de gelada.",
+                    price: 6.90,
+                    img: "https://images.unsplash.com/photo-1554866585-cd94860890b7?auto=format&fit=crop&w=700&q=80"
                 }
             ];
 
-            // Todas as opções de combos do cardápio
-            const allMenuCombos = burgers.map((b) => ({
-                id: "menu-combo-" + b.id,
-                tag: "Combo • 100g Batata + 1 Refri Lata",
-                name: "Combo " + b.name,
-                desc: b.desc + " Acompanha 100g de batata e 1 refri lata.",
-                oldPrice: null,
-                price: b.comboPrice,
-                icon: "🍟"
-            }));
-
-            // Bebidas oficiais
-            const drinksGroups = [
+            const promoCombos = [
                 {
-                    title: "Cervejas",
-                    items: [
-                        { id: "d-heineken-600", name: "Heineken 600ml", price: 15.90 },
-                        { id: "d-original-600", name: "Original 600ml", price: 14.90 },
-                        { id: "d-boa-600", name: "Boa 600ml", price: 12.90 },
-                        { id: "d-heineken-ln", name: "Heineken Long Neck", price: 11.90 },
-                        { id: "d-stella-ln", name: "Stella Gold Long Neck", price: 11.90 }
-                    ]
+                    id: "combo-classico",
+                    name: "Combo Chef Clássico",
+                    desc: "Chef Clássico + batata frita + refri lata.",
+                    oldPrice: 37.90,
+                    price: 34.90,
+                    img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
                 },
                 {
-                    title: "Refrigerantes",
-                    items: [
-                        { id: "d-limoneto", name: "Limoneto", price: 7.90 },
-                        { id: "d-schweppes", name: "Schweppes Citrus", price: 6.90 },
-                        { id: "d-coca-lata", name: "Coca-Cola Lata (Normal/Zero)", price: 6.90 },
-                        { id: "d-guarana-lata", name: "Guaraná Lata", price: 6.90 },
-                        { id: "d-fanta-lata", name: "Fanta Laranja", price: 6.90 },
-                        { id: "d-coca-1l-norm", name: "Coca-Cola 1L Normal", price: 9.90 },
-                        { id: "d-coca-1l-zero", name: "Coca-Cola 1L Zero", price: 9.90 }
-                    ]
+                    id: "combo-smash",
+                    name: "Combo Chef No Smash",
+                    desc: "Chef No Smash + batata frita + refri lata.",
+                    oldPrice: 43.90,
+                    price: 39.90,
+                    img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=700&q=80"
                 },
                 {
-                    title: "Águas e Sucos",
-                    items: [
-                        { id: "d-agua-510-s", name: "Água Prata 510ml Sem Gás", price: 6.90 },
-                        { id: "d-agua-510-c", name: "Água Prata 510ml Com Gás", price: 6.90 },
-                        { id: "d-agua-300-s", name: "Água Prata Vidro 300ml Sem Gás", price: 6.90 },
-                        { id: "d-agua-300-c", name: "Água Prata Vidro 300ml Com Gás", price: 6.90 },
-                        { id: "d-agua-sab", name: "Água com gás saborizada (limão/tangerina)", price: 6.90 },
-                        { id: "d-suco-uva", name: "Suco de Uva lata", price: 6.90 },
-                        { id: "d-kapo-m", name: "Kapo Morango", price: 3.90 },
-                        { id: "d-kapo-u", name: "Kapo Uva", price: 3.90 },
-                        { id: "d-kapo-me", name: "Kapo Melancia", price: 3.90 }
-                    ]
+                    id: "combo-costela",
+                    name: "Combo Chef Costela",
+                    desc: "Chef Costela + batata frita + refri lata.",
+                    oldPrice: 50.90,
+                    price: 46.90,
+                    img: "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=80"
                 }
             ];
 
-            // Adicionais Monte do Seu Jeito do cardápio
-            const menuAddons = [
-                { id: "ma-burger", name: "Hambúrguer artesanal", price: 9.90 },
-                { id: "ma-crispy", name: "Hambúrguer crispy", price: 8.90 },
-                { id: "ma-costela", name: "Hambúrguer de costela", price: 10.90 },
-                { id: "ma-bacon", name: "Bacon crocante", price: 5.90 },
-                { id: "ma-cheddar", name: "Queijo cheddar", price: 3.90 },
-                { id: "ma-mussarela", name: "Queijo mussarela", price: 3.90 },
-                { id: "ma-provolone", name: "Queijo provolone", price: 4.40 },
-                { id: "ma-geleia", name: "Geleia de bacon", price: 3.90 },
-                { id: "ma-cebola-caram", name: "Cebola caramelizada", price: 3.90 },
-                { id: "ma-picles", name: "Picles", price: 2.00 },
-                { id: "ma-rucula", name: "Rúcula", price: 2.00 },
-                { id: "ma-alface", name: "Alface", price: 2.00 },
-                { id: "ma-tomate", name: "Tomate", price: 2.00 },
-                { id: "ma-cebola-roxa", name: "Cebola roxa", price: 2.00 },
-                { id: "ma-molho", name: "Molho adicional", price: 2.90 }
-            ];
+            const menuContainer = document.getElementById("menu-cards-container");
+            const combosContainer = document.getElementById("combos-cards-container");
 
-            // 3 avaliações de clientes
-            const reviews = [
-                {
-                    name: "Lucas M.",
-                    initials: "LM",
-                    bg: "#ea580c",
-                    text: "Melhor smash de Rio Preto!"
-                },
-                {
-                    name: "Camila R.",
-                    initials: "CR",
-                    bg: "#d97706",
-                    text: "Chef Costela muito saboroso, atendimento rápido e opção de jantar no local ou entrega."
-                },
-                {
-                    name: "Rafael S.",
-                    initials: "RS",
-                    bg: "#b45309",
-                    text: "Combos bem servidos, lanche no ponto certo e aceitam Pix sem complicação."
-                }
-            ];
+            function buildItemCard(item, isCombo) {
+                const card = document.createElement("article");
+                card.className = "dark-food-card";
+                if (item.cat) card.setAttribute("data-cat", item.cat);
+                card.setAttribute("data-search", `${item.name} ${item.desc} ${item.cat || "combo"}`.toLowerCase());
 
-            function formatBRL(num) {
-                return "R$ " + Number(num).toFixed(2).replace(".", ",");
+                const priceMarkup = isCombo
+                    ? `<div><span class="price-strike">${formatBRL(item.oldPrice)}</span><span class="price-promo">${formatBRL(item.price)}</span></div>`
+                    : `<span class="price-orange">${formatBRL(item.price)}</span>`;
+
+                card.innerHTML = `
+                    <div class="card-photo-wrap">
+                        <img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/600x380/141414/FF7A00?text=CB+CHEFE%27S'">
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <h3 class="card-name">${item.name}</h3>
+                            <p class="card-short-desc">${item.desc}</p>
+                        </div>
+                        <div class="card-bottom-row">
+                            ${priceMarkup}
+                            <button type="button" class="btn-orange btn-orange-sm add-to-cart-trigger" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}" data-img="${item.img}">
+                                + Adicionar
+                            </button>
+                        </div>
+                    </div>
+                `;
+                return card;
             }
 
-            // Estado do carrinho
-            let cart = [];
-            let couponApplied = false;
+            menuCatalog.forEach((item) => menuContainer.appendChild(buildItemCard(item, false)));
+            promoCombos.forEach((combo) => combosContainer.appendChild(buildItemCard(combo, true)));
 
-            function addToCart(entry) {
-                const existing = cart.find((item) => item.key === entry.key);
-                if (existing) {
-                    existing.qty += 1;
+            // =================================================================
+            // FILTROS E BUSCA RÁPIDA EXPANSÍVEL
+            // =================================================================
+            const catPills = document.querySelectorAll(".cat-pill");
+            const searchDrawer = document.getElementById("quick-search-drawer");
+            const toggleSearchBtn = document.getElementById("toggle-search-btn");
+            const quickSearchInput = document.getElementById("quick-search-input");
+            const clearSearchBtn = document.getElementById("clear-search-btn");
+
+            let selectedCat = "todos";
+
+            function filterMenuCards() {
+                const query = (quickSearchInput ? quickSearchInput.value : "").trim().toLowerCase();
+                const allCards = menuContainer.querySelectorAll(".dark-food-card");
+
+                allCards.forEach((card) => {
+                    const cardCat = card.getAttribute("data-cat");
+                    const cardSearch = card.getAttribute("data-search") || "";
+                    const catOk = selectedCat === "todos" || cardCat === selectedCat;
+                    const textOk = !query || cardSearch.includes(query);
+                    card.classList.toggle("hidden-card", !(catOk && textOk));
+                });
+            }
+
+            catPills.forEach((pill) => {
+                pill.addEventListener("click", () => {
+                    catPills.forEach((p) => p.classList.remove("active"));
+                    pill.classList.add("active");
+                    selectedCat = pill.getAttribute("data-cat");
+                    filterMenuCards();
+                });
+            });
+
+            if (toggleSearchBtn && searchDrawer) {
+                toggleSearchBtn.addEventListener("click", () => {
+                    searchDrawer.classList.toggle("open");
+                    if (searchDrawer.classList.contains("open") && quickSearchInput) {
+                        quickSearchInput.focus();
+                    }
+                });
+            }
+
+            if (quickSearchInput) {
+                quickSearchInput.addEventListener("input", () => {
+                    const menuEl = document.getElementById("menu");
+                    filterMenuCards();
+                    if (quickSearchInput.value.trim().length > 0 && menuEl) {
+                        menuEl.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                });
+            }
+
+            if (clearSearchBtn && quickSearchInput) {
+                clearSearchBtn.addEventListener("click", () => {
+                    quickSearchInput.value = "";
+                    filterMenuCards();
+                });
+            }
+
+            // =================================================================
+            // CARRINHO FUNCIONAL + CUPOM BEMVINDO10 + WHATSAPP
+            // =================================================================
+            let cartItems = [];
+            let hasCouponDiscount = false;
+
+            const floatingWrap = document.getElementById("floating-cart-wrap");
+            const floatingText = document.getElementById("floating-cart-text");
+            const headerBadge = document.getElementById("header-cart-badge");
+            const cartModal = document.getElementById("cart-modal");
+            const cartItemsContainer = document.getElementById("cart-items-container");
+
+            function addToCart(id, name, price, img) {
+                const found = cartItems.find((i) => i.id === id);
+                if (found) {
+                    found.qty += 1;
                 } else {
-                    cart.push({
-                        key: entry.key,
-                        name: entry.name,
-                        detail: entry.detail || "",
-                        price: Number(entry.price),
-                        icon: entry.icon || "🍔",
+                    cartItems.push({
+                        id,
+                        name,
+                        price: Number(price),
+                        img: img || "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=200&q=75",
                         qty: 1
                     });
                 }
-                renderCart();
+                updateCartDisplay();
             }
 
-            function changeQty(key, delta) {
-                const idx = cart.findIndex((i) => i.key === key);
-                if (idx === -1) return;
-                cart[idx].qty += delta;
-                if (cart[idx].qty <= 0) {
-                    cart.splice(idx, 1);
+            function changeCartQty(index, delta) {
+                const item = cartItems[index];
+                if (!item) return;
+                item.qty += delta;
+                if (item.qty <= 0) {
+                    cartItems.splice(index, 1);
                 }
-                renderCart();
+                updateCartDisplay();
             }
 
-            function removeItem(key) {
-                cart = cart.filter((i) => i.key !== key);
-                renderCart();
+            function removeCartItem(index) {
+                cartItems.splice(index, 1);
+                updateCartDisplay();
             }
 
-            function calculateCartTotals() {
-                const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
-                const subtotal = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
-                const discount = couponApplied ? subtotal * 0.10 : 0;
-                const afterDiscount = Math.max(0, subtotal - discount);
-                const delivery = cart.length === 0 ? 0 : (afterDiscount >= FREE_DELIVERY_MIN ? 0 : DELIVERY_FEE);
-                const total = afterDiscount + delivery;
+            function updateCartDisplay() {
+                const totalCount = cartItems.reduce((acc, item) => acc + item.qty, 0);
+                const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.qty, 0);
+                const discount = hasCouponDiscount ? subtotal * 0.10 : 0;
+                const discountedSubtotal = Math.max(0, subtotal - discount);
+                const delivery = cartItems.length === 0 ? 0 : (discountedSubtotal >= FREE_DELIVERY_THRESHOLD ? 0 : DELIVERY_FEE);
+                const grandTotal = discountedSubtotal + delivery;
 
-                return { totalItems, subtotal, discount, delivery, total };
-            }
-
-            function renderCart() {
-                const floatingBar = document.getElementById("floating-cart-bar");
-                const floatingLabel = document.getElementById("floating-cart-label");
-                const listEl = document.getElementById("cart-items-list");
-                const subtotalEl = document.getElementById("cart-subtotal");
-                const discountRow = document.getElementById("cart-discount-row");
-                const discountEl = document.getElementById("cart-discount");
-                const deliveryEl = document.getElementById("cart-delivery");
-                const totalEl = document.getElementById("cart-total");
-                const checkoutBtn = document.getElementById("checkout-whatsapp-btn");
-                const obsInput = document.getElementById("cart-obs-input");
-
-                const { totalItems, subtotal, discount, delivery, total } = calculateCartTotals();
-
-                if (totalItems > 0) {
-                    floatingBar.classList.add("visible");
-                    floatingLabel.textContent = `Ver carrinho - ${totalItems} ${totalItems === 1 ? "item" : "itens"} - ${formatBRL(total)}`;
+                if (totalCount > 0) {
+                    floatingWrap.classList.add("visible");
+                    floatingText.textContent = `Ver carrinho - ${totalCount} ${totalCount === 1 ? "item" : "itens"} - ${formatBRL(grandTotal)}`;
+                    headerBadge.textContent = String(totalCount);
+                    headerBadge.classList.add("show");
                 } else {
-                    floatingBar.classList.remove("visible");
+                    floatingWrap.classList.remove("visible");
+                    headerBadge.classList.remove("show");
                 }
 
-                if (cart.length === 0) {
-                    listEl.innerHTML = `<p style="color: var(--text-secondary); font-size: 13.5px;">Seu carrinho está vazio. Clique em "+ Adicionar" em qualquer lanche, combo ou bebida.</p>`;
+                if (cartItems.length === 0) {
+                    cartItemsContainer.innerHTML = `<p style="color: var(--text-secondary); font-size: 13.5px;">Seu carrinho está vazio no momento.</p>`;
                 } else {
-                    listEl.innerHTML = cart
-                        .map((item) => `
-                            <div class="cart-item-card">
-                                <div class="cart-thumb">${item.icon}</div>
-                                <div class="cart-item-body">
-                                    <div class="cart-item-title">${item.name}</div>
-                                    ${item.detail ? `<div class="cart-item-sub">${item.detail}</div>` : ""}
-                                    <div class="cart-item-controls">
-                                        <div class="qty-group">
-                                            <button type="button" class="qty-btn" data-qty-key="${item.key}" data-delta="-1">-</button>
-                                            <span class="qty-num">${item.qty}</span>
-                                            <button type="button" class="qty-btn" data-qty-key="${item.key}" data-delta="1">+</button>
-                                        </div>
-                                        <div>
-                                            <strong style="font-size: 13.5px; color: var(--accent-hover); margin-right: 8px;">${formatBRL(item.price * item.qty)}</strong>
-                                            <button type="button" class="remove-link" data-remove-key="${item.key}">Remover</button>
-                                        </div>
-                                    </div>
-                                </div>
+                    cartItemsContainer.innerHTML = cartItems.map((item, idx) => `
+                        <div class="cart-line-item">
+                            <img src="${item.img}" alt="${item.name}" style="width: 48px; height: 48px; border-radius: 8px; object-fit: cover; flex-shrink: 0;" onerror="this.src='https://placehold.co/80x80/141414/FF7A00?text=CB'">
+                            <div style="flex: 1; min-width: 0;">
+                                <div style="font-size: 13.5px; font-weight: 700;">${item.name}</div>
+                                <div class="price-orange" style="font-size: 12.5px;">${formatBRL(item.price * item.qty)}</div>
                             </div>
-                        `)
-                        .join("");
+                            <div class="qty-stepper">
+                                <button type="button" class="cart-qty-minus" data-idx="${idx}" aria-label="Diminuir quantidade">-</button>
+                                <span style="font-size: 13px; font-weight: 700; min-width: 18px; text-align: center;">${item.qty}</span>
+                                <button type="button" class="cart-qty-plus" data-idx="${idx}" aria-label="Aumentar quantidade">+</button>
+                                <button type="button" class="cart-qty-remove" data-idx="${idx}" aria-label="Remover item">&times;</button>
+                            </div>
+                        </div>
+                    `).join("");
+
+                    cartItemsContainer.querySelectorAll(".cart-qty-minus").forEach((b) => {
+                        b.addEventListener("click", () => changeCartQty(Number(b.getAttribute("data-idx")), -1));
+                    });
+                    cartItemsContainer.querySelectorAll(".cart-qty-plus").forEach((b) => {
+                        b.addEventListener("click", () => changeCartQty(Number(b.getAttribute("data-idx")), 1));
+                    });
+                    cartItemsContainer.querySelectorAll(".cart-qty-remove").forEach((b) => {
+                        b.addEventListener("click", () => removeCartItem(Number(b.getAttribute("data-idx"))));
+                    });
                 }
 
-                subtotalEl.textContent = formatBRL(subtotal);
+                document.getElementById("summary-subtotal").textContent = formatBRL(subtotal);
 
-                if (couponApplied && subtotal > 0) {
+                const discountRow = document.getElementById("summary-discount-row");
+                if (hasCouponDiscount && subtotal > 0) {
                     discountRow.style.display = "flex";
-                    discountEl.textContent = "- " + formatBRL(discount);
+                    document.getElementById("summary-discount").textContent = "- " + formatBRL(discount);
                 } else {
                     discountRow.style.display = "none";
                 }
 
-                deliveryEl.textContent = cart.length === 0 ? "R$ 0,00" : (delivery === 0 ? "Grátis" : formatBRL(delivery));
-                totalEl.textContent = formatBRL(total);
+                document.getElementById("summary-delivery").textContent = cartItems.length === 0 ? "R$ 0,00" : (delivery === 0 ? "Grátis" : formatBRL(delivery));
+                document.getElementById("summary-total").textContent = formatBRL(grandTotal);
 
-                const lines = ["Olá! Gostaria de finalizar meu pedido no CB Chefe's Burguer:", ""];
-                cart.forEach((item) => {
-                    lines.push(`• ${item.qty}x ${item.name} — ${formatBRL(item.price * item.qty)}`);
-                    if (item.detail) {
-                        lines.push(`   (${item.detail})`);
-                    }
+                const msgLines = ["Olá! Quero finalizar meu pedido no CB Chefe's Burguer:", ""];
+                cartItems.forEach((i) => {
+                    msgLines.push(`• ${i.qty}x ${i.name} — ${formatBRL(i.price * i.qty)}`);
                 });
-                lines.push("");
-                lines.push(`Subtotal: ${formatBRL(subtotal)}`);
-                if (couponApplied && subtotal > 0) {
-                    lines.push(`Cupom BEMVINDO10 (10%): -${formatBRL(discount)}`);
+                msgLines.push("");
+                msgLines.push(`Subtotal: ${formatBRL(subtotal)}`);
+                if (hasCouponDiscount && subtotal > 0) {
+                    msgLines.push(`Cupom BEMVINDO10 (10%): -${formatBRL(discount)}`);
                 }
-                lines.push(`Taxa de entrega: ${delivery === 0 ? "Grátis" : formatBRL(delivery)}`);
-                lines.push(`Total: ${formatBRL(total)}`);
+                msgLines.push(`Taxa de entrega: ${delivery === 0 ? "Grátis" : formatBRL(delivery)}`);
+                msgLines.push(`Total: ${formatBRL(grandTotal)}`);
 
-                const obsText = obsInput ? obsInput.value.trim() : "";
-                if (obsText) {
-                    lines.push(`Observações: ${obsText}`);
-                }
-
-                checkoutBtn.href = "https://wa.me/" + WHATSAPP_PHONE + "?text=" + encodeURIComponent(lines.join("\n"));
+                document.getElementById("finalize-whatsapp-btn").href =
+                    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msgLines.join("\n"))}`;
             }
 
-            // =================================================================
-            // CRIAÇÃO DE CARDS E SEÇÕES
-            // =================================================================
-            function makeFoodCard(item, categoryAttr, options = {}) {
-                const card = document.createElement("article");
-                card.className = "food-card";
-                if (categoryAttr) {
-                    card.dataset.category = categoryAttr;
-                }
-                card.dataset.search = (item.name + " " + item.desc + " " + item.tag).toLowerCase();
-
-                const sealHtml = item.seal ? `<span class="spotlight-seal">${item.seal}</span>` : "";
-
-                let priceBlockHtml = "";
-                if (item.oldPrice) {
-                    priceBlockHtml = `
-                        <div class="price-row">
-                            <span class="old-price">De ${formatBRL(item.oldPrice)}</span>
-                            <span class="new-price">Por ${formatBRL(item.price)}</span>
-                        </div>
-                    `;
-                } else if (item.comboPrice) {
-                    priceBlockHtml = `
-                        <div class="price-row">
-                            <span class="price-tag">Lanche ${formatBRL(item.lanchePrice)}</span>
-                            <span class="price-tag combo">Combo ${formatBRL(item.comboPrice)}</span>
-                        </div>
-                    `;
-                } else {
-                    priceBlockHtml = `
-                        <div class="price-row">
-                            <span class="price-tag">${formatBRL(item.price)}</span>
-                        </div>
-                    `;
-                }
-
-                const addPrice = options.addCombo ? item.comboPrice : (item.price || item.lanchePrice);
-                const addLabel = options.addCombo ? `Combo (${formatBRL(addPrice)})` : `${formatBRL(addPrice)}`;
-
-                card.innerHTML = `
-                    <div>
-                        <div class="card-badges-line">
-                            <span class="card-tag">${item.tag}</span>
-                            ${sealHtml}
-                        </div>
-                        <div class="card-top">
-                            <h3>${item.name}</h3>
-                        </div>
-                        <p class="food-desc">${item.desc}</p>
-                        <button type="button" class="see-more-btn" aria-expanded="false">Ver mais</button>
-                        ${priceBlockHtml}
-                    </div>
-                    <div class="card-footer">
-                        <span style="font-size: 12px; color: var(--text-secondary);">${addLabel}</span>
-                        <button type="button" class="btn btn-primary btn-sm add-item-btn"
-                            data-key="${options.keyPrefix || ""}${item.id}"
-                            data-name="${options.addCombo ? "Combo " + item.name : item.name}"
-                            data-detail="${options.addCombo ? "Acompanha 100g de batata e 1 refri lata" : item.tag}"
-                            data-price="${addPrice}"
-                            data-icon="${item.icon || "🍔"}">
-                            + Adicionar
-                        </button>
-                    </div>
-                `;
-
-                return card;
-            }
-
-            // 1. Queridinhos da Casa (3 lanches com selos: Nº1 MAIS PEDIDO, NOVO, DO CHEFE)
-            const queridinhosGrid = document.getElementById("queridinhos-grid");
-            const queridinhosIds = ["chef-classico", "chef-picante", "chef-costela"];
-            queridinhosIds.forEach((id) => {
-                const found = burgers.find((b) => b.id === id);
-                if (found) {
-                    queridinhosGrid.appendChild(makeFoodCard(found, "burgers", { keyPrefix: "q-" }));
+            document.addEventListener("click", (ev) => {
+                const trigger = ev.target.closest(".add-to-cart-trigger");
+                if (trigger) {
+                    addToCart(
+                        trigger.getAttribute("data-id"),
+                        trigger.getAttribute("data-name"),
+                        trigger.getAttribute("data-price"),
+                        trigger.getAttribute("data-img")
+                    );
                 }
             });
 
-            // 2. Combos na Home e na Aba Combos
-            const homeCombosGrid = document.getElementById("home-combos-grid");
-            const tabCombosGrid = document.getElementById("tab-combos-grid");
-
-            featuredCombos.forEach((c) => {
-                homeCombosGrid.appendChild(makeFoodCard(c, "combos", { keyPrefix: "hc-" }));
-                tabCombosGrid.appendChild(makeFoodCard(c, "combos", { keyPrefix: "tc-" }));
-            });
-
-            allMenuCombos.forEach((mc) => {
-                tabCombosGrid.appendChild(makeFoodCard(mc, "combos", { keyPrefix: "mc-" }));
-            });
-
-            // 3. Cardápio completo (Hambúrgueres, Porções, Menu Kids, Bebidas e Adicionais)
-            const catalogBurgersGrid = document.getElementById("catalog-burgers-grid");
-            const catalogPorcoesGrid = document.getElementById("catalog-porcoes-grid");
-            const catalogKidsGrid = document.getElementById("catalog-kids-grid");
-
-            burgers.forEach((b) => {
-                catalogBurgersGrid.appendChild(makeFoodCard(b, "burgers", { keyPrefix: "cb-" }));
-            });
-            porcoes.forEach((p) => {
-                catalogPorcoesGrid.appendChild(makeFoodCard(p, "porcoes", { keyPrefix: "cp-" }));
-            });
-            kidsItems.forEach((k) => {
-                catalogKidsGrid.appendChild(makeFoodCard(k, "kids", { keyPrefix: "ck-" }));
-            });
-
-            const drinksAddonsGrid = document.getElementById("catalog-drinks-addons-grid");
-            drinksGroups.forEach((grp) => {
-                const box = document.createElement("div");
-                box.className = "list-box";
-                box.innerHTML = `
-                    <h3>${grp.title}</h3>
-                    <ul class="price-list">
-                        ${grp.items.map((d) => `
-                            <li>
-                                <span class="item-name">${d.name}</span>
-                                <div class="price-list-right">
-                                    <strong>${formatBRL(d.price)}</strong>
-                                    <button type="button" class="btn btn-primary btn-sm add-item-btn"
-                                        data-key="${d.id}"
-                                        data-name="${d.name}"
-                                        data-detail="${grp.title}"
-                                        data-price="${d.price}"
-                                        data-icon="🥤">
-                                        + Adicionar
-                                    </button>
-                                </div>
-                            </li>
-                        `).join("")}
-                    </ul>
-                `;
-                drinksAddonsGrid.appendChild(box);
-            });
-
-            const addonsBox = document.createElement("div");
-            addonsBox.className = "list-box";
-            addonsBox.innerHTML = `
-                <h3>Monte do Seu Jeito (Adicionais)</h3>
-                <ul class="price-list">
-                    ${menuAddons.map((a) => `
-                        <li>
-                            <span class="item-name">${a.name}</span>
-                            <div class="price-list-right">
-                                <strong>${formatBRL(a.price)}</strong>
-                                <button type="button" class="btn btn-primary btn-sm add-item-btn"
-                                    data-key="${a.id}"
-                                    data-name="Adicional ${a.name}"
-                                    data-detail="Monte do Seu Jeito"
-                                    data-price="${a.price}"
-                                    data-icon="➕">
-                                    + Adicionar
-                                </button>
-                            </div>
-                        </li>
-                    `).join("")}
-                </ul>
-            `;
-            drinksAddonsGrid.appendChild(addonsBox);
-
-            // 4. Avaliações na Home e na Aba Avaliações
-            function renderReviewsInto(containerId) {
-                const target = document.getElementById(containerId);
-                if (!target) return;
-                target.innerHTML = reviews
-                    .map((r) => `
-                        <article class="review-card">
-                            <div class="review-top">
-                                <div class="reviewer-info">
-                                    <svg class="avatar-svg" viewBox="0 0 40 40" aria-hidden="true">
-                                        <circle cx="20" cy="20" r="20" fill="${r.bg}"/>
-                                        <text x="20" y="25" text-anchor="middle" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="800">${r.initials}</text>
-                                    </svg>
-                                    <span class="reviewer-name">${r.name}</span>
-                                </div>
-                                <span class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733; 5.0</span>
-                            </div>
-                            <p class="review-quote">"${r.text}"</p>
-                        </article>
-                    `)
-                    .join("");
-            }
-            renderReviewsInto("home-reviews-grid");
-            renderReviewsInto("tab-reviews-grid");
-
-            // =================================================================
-            // VER MAIS / VER MENOS NA DESCRIÇÃO (2 LINHAS)
-            // =================================================================
-            document.addEventListener("click", (e) => {
-                const seeMore = e.target.closest(".see-more-btn");
-                if (seeMore) {
-                    const descEl = seeMore.previousElementSibling;
-                    if (descEl && descEl.classList.contains("food-desc")) {
-                        const expanded = descEl.classList.toggle("expanded");
-                        seeMore.textContent = expanded ? "Ver menos" : "Ver mais";
-                        seeMore.setAttribute("aria-expanded", String(expanded));
-                    }
-                }
-
-                const addBtn = e.target.closest(".add-item-btn");
-                if (addBtn) {
-                    addToCart({
-                        key: addBtn.dataset.key,
-                        name: addBtn.dataset.name,
-                        detail: addBtn.dataset.detail,
-                        price: parseFloat(addBtn.dataset.price),
-                        icon: addBtn.dataset.icon
-                    });
-                }
-
-                const qtyBtn = e.target.closest(".qty-btn");
-                if (qtyBtn) {
-                    changeQty(qtyBtn.dataset.qtyKey, parseInt(qtyBtn.dataset.delta, 10));
-                }
-
-                const remBtn = e.target.closest(".remove-link");
-                if (remBtn) {
-                    removeItem(remBtn.dataset.removeKey);
-                }
-            });
-
-            // =================================================================
-            // FILTROS E BUSCA NO CARDÁPIO
-            // =================================================================
-            const filterBtns = document.querySelectorAll("#tab-cardapio .pill-btn");
-            const searchInput = document.getElementById("menu-search");
-            let currentFilter = "todos";
-
-            function filterCatalog() {
-                const term = (searchInput ? searchInput.value : "").trim().toLowerCase();
-                const cards = document.querySelectorAll("#tab-cardapio .food-card");
-                cards.forEach((card) => {
-                    const catMatch = currentFilter === "todos" || card.dataset.category === currentFilter;
-                    const textMatch = !term || (card.dataset.search || "").includes(term);
-                    card.classList.toggle("hidden-item", !(catMatch && textMatch));
-                });
-            }
-
-            filterBtns.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    currentFilter = btn.dataset.filter;
-                    filterBtns.forEach((b) => b.classList.remove("active"));
-                    btn.classList.add("active");
-                    filterCatalog();
-                });
-            });
-
-            if (searchInput) {
-                searchInput.addEventListener("input", filterCatalog);
-            }
-
-            // =================================================================
-            // NAVEGAÇÃO ENTRE ABAS (TOPO + MENU INFERIOR FIXO)
-            // =================================================================
-            const topTabs = document.querySelectorAll(".top-tabs .tab-btn");
-            const bottomNavBtns = document.querySelectorAll(".bottom-nav-btn[data-tab]");
-            const views = document.querySelectorAll(".tab-view");
-
-            function switchTab(tabId) {
-                views.forEach((v) => v.classList.toggle("active", v.id === "tab-" + tabId));
-                topTabs.forEach((t) => t.classList.toggle("active", t.dataset.tab === tabId));
-                bottomNavBtns.forEach((b) => b.classList.toggle("active", b.dataset.tab === tabId));
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            }
-
-            topTabs.forEach((t) => t.addEventListener("click", () => switchTab(t.dataset.tab)));
-            bottomNavBtns.forEach((b) => b.addEventListener("click", () => switchTab(b.dataset.tab)));
-            document.querySelectorAll("[data-go-tab]").forEach((el) => {
-                el.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    switchTab(el.getAttribute("data-go-tab"));
-                });
-            });
-
-            // =================================================================
-            // DRAWER DO CARRINHO + CUPOM BEMVINDO10
-            // =================================================================
-            const cartDrawer = document.getElementById("cart-drawer");
-            const openCartBtn = document.getElementById("open-cart-btn");
-            const closeCartBtn = document.getElementById("close-cart-btn");
-            const bottomPedidosBtn = document.getElementById("bottom-pedidos-btn");
-            const profileOpenCartBtn = document.getElementById("profile-open-cart-btn");
-            const couponInput = document.getElementById("coupon-input");
+            const couponInput = document.getElementById("coupon-code-input");
             const applyCouponBtn = document.getElementById("apply-coupon-btn");
-            const couponMsg = document.getElementById("coupon-msg");
-            const obsInput = document.getElementById("cart-obs-input");
-
-            function openCartDrawer() {
-                renderCart();
-                cartDrawer.classList.add("open");
-            }
-
-            function closeCartDrawer() {
-                cartDrawer.classList.remove("open");
-            }
-
-            if (openCartBtn) openCartBtn.addEventListener("click", openCartDrawer);
-            if (closeCartBtn) closeCartBtn.addEventListener("click", closeCartDrawer);
-            if (bottomPedidosBtn) bottomPedidosBtn.addEventListener("click", openCartDrawer);
-            if (profileOpenCartBtn) profileOpenCartBtn.addEventListener("click", openCartDrawer);
-            if (cartDrawer) {
-                cartDrawer.addEventListener("click", (e) => {
-                    if (e.target === cartDrawer) closeCartDrawer();
-                });
-            }
+            const couponMsg = document.getElementById("coupon-status-msg");
 
             if (applyCouponBtn && couponInput) {
                 applyCouponBtn.addEventListener("click", () => {
                     const code = couponInput.value.trim().toUpperCase();
                     if (code === "BEMVINDO10") {
-                        couponApplied = true;
-                        couponMsg.textContent = "Cupom BEMVINDO10 aplicado: 10% de desconto!";
+                        hasCouponDiscount = true;
+                        couponMsg.textContent = "Cupom BEMVINDO10 aplicado! 10% de desconto ativado.";
                     } else {
-                        couponApplied = false;
-                        couponMsg.textContent = code ? "Cupom inválido. Use BEMVINDO10 para 10% off." : "Digite BEMVINDO10 para aplicar 10% off.";
+                        hasCouponDiscount = false;
+                        couponMsg.textContent = "Cupom inválido. Tente BEMVINDO10.";
                     }
-                    renderCart();
+                    updateCartDisplay();
                 });
             }
 
-            if (obsInput) {
-                obsInput.addEventListener("input", renderCart);
-            }
+            document.getElementById("open-cart-modal-btn").addEventListener("click", () => cartModal.classList.add("open"));
+            document.getElementById("header-cart-btn").addEventListener("click", () => cartModal.classList.add("open"));
+            document.getElementById("close-cart-modal").addEventListener("click", () => cartModal.classList.remove("open"));
+            cartModal.addEventListener("click", (ev) => {
+                if (ev.target === cartModal) cartModal.classList.remove("open");
+            });
 
             // =================================================================
-            // MODAL MONTE O SEU LANCHE
+            // MONTE O SEU LANCHE (CÁLCULO EM TEMPO REAL)
             // =================================================================
             const builderModal = document.getElementById("builder-modal");
-            const openBuilderBtn = document.getElementById("open-builder-btn");
-            const heroBuilderBtn = document.getElementById("hero-builder-btn");
-            const closeBuilderBtn = document.getElementById("close-builder-btn");
-            const builderTotalEl = document.getElementById("builder-total-price");
-            const builderAddCartBtn = document.getElementById("builder-add-cart-btn");
+            const builderLiveTotal = document.getElementById("builder-live-total");
 
-            let chosenBread = "Brioche";
-            let chosenBlend = "Smash 90g";
-            let chosenBlendPrice = 24.00;
-            let chosenCheese = "Prato";
+            let selectedPao = "Brioche";
+            let selectedBlend = "Smash 90g";
+            let selectedBlendPrice = 24.00;
+            let selectedQueijo = "Prato";
 
-            function calculateBuilderPrice() {
-                let sum = chosenBlendPrice;
-                const checkedAddons = builderModal.querySelectorAll(".builder-addon:checked");
-                const addonNames = [];
-                checkedAddons.forEach((chk) => {
-                    sum += parseFloat(chk.dataset.price);
-                    addonNames.push(`+${chk.dataset.name}`);
+            function updateBuilderTotal() {
+                let total = selectedBlendPrice;
+                const extras = [];
+                builderModal.querySelectorAll(".builder-extra-chk:checked").forEach((chk) => {
+                    total += Number(chk.getAttribute("data-price"));
+                    extras.push(`+${chk.getAttribute("data-name")}`);
                 });
-                builderTotalEl.textContent = formatBRL(sum);
-                return { sum, addonNames };
+                builderLiveTotal.textContent = formatBRL(total);
+                return { total, extras };
             }
 
-            function bindChoiceGroup(gridId, setter) {
-                const grid = document.getElementById(gridId);
-                if (!grid) return;
-                grid.querySelectorAll(".choice-pill").forEach((btn) => {
+            function bindSingleSelect(containerId, attrName, onSelect) {
+                const group = document.getElementById(containerId);
+                if (!group) return;
+                group.querySelectorAll(".choice-card-btn").forEach((btn) => {
                     btn.addEventListener("click", () => {
-                        grid.querySelectorAll(".choice-pill").forEach((b) => b.classList.remove("active"));
-                        btn.classList.add("active");
-                        setter(btn);
-                        calculateBuilderPrice();
+                        group.querySelectorAll(".choice-card-btn").forEach((b) => b.classList.remove("selected"));
+                        btn.classList.add("selected");
+                        onSelect(btn);
+                        updateBuilderTotal();
                     });
                 });
             }
 
-            bindChoiceGroup("builder-bread-grid", (btn) => {
-                chosenBread = btn.dataset.bread;
+            bindSingleSelect("pao-options", "data-pao", (b) => {
+                selectedPao = b.getAttribute("data-pao");
             });
-            bindChoiceGroup("builder-blend-grid", (btn) => {
-                chosenBlend = btn.dataset.blend;
-                chosenBlendPrice = parseFloat(btn.dataset.price);
+            bindSingleSelect("blend-options", "data-blend", (b) => {
+                selectedBlend = b.getAttribute("data-blend");
+                selectedBlendPrice = Number(b.getAttribute("data-price"));
             });
-            bindChoiceGroup("builder-cheese-grid", (btn) => {
-                chosenCheese = btn.dataset.cheese;
-            });
-
-            builderModal.querySelectorAll(".builder-addon").forEach((chk) => {
-                chk.addEventListener("change", calculateBuilderPrice);
+            bindSingleSelect("queijo-options", "data-queijo", (b) => {
+                selectedQueijo = b.getAttribute("data-queijo");
             });
 
-            function openBuilder() {
-                calculateBuilderPrice();
+            builderModal.querySelectorAll(".builder-extra-chk").forEach((chk) => {
+                chk.addEventListener("change", updateBuilderTotal);
+            });
+
+            document.getElementById("open-builder-modal-btn").addEventListener("click", () => {
+                updateBuilderTotal();
                 builderModal.classList.add("open");
-            }
-
-            function closeBuilder() {
+            });
+            document.getElementById("close-builder-modal").addEventListener("click", () => {
                 builderModal.classList.remove("open");
-            }
-
-            if (openBuilderBtn) openBuilderBtn.addEventListener("click", openBuilder);
-            if (heroBuilderBtn) heroBuilderBtn.addEventListener("click", openBuilder);
-            if (closeBuilderBtn) closeBuilderBtn.addEventListener("click", closeBuilder);
-            if (builderModal) {
-                builderModal.addEventListener("click", (e) => {
-                    if (e.target === builderModal) closeBuilder();
-                });
-            }
-
-            if (builderAddCartBtn) {
-                builderAddCartBtn.addEventListener("click", () => {
-                    const { sum, addonNames } = calculateBuilderPrice();
-                    const detailParts = [`Pão ${chosenBread}`, chosenBlend, `Queijo ${chosenCheese}`];
-                    if (addonNames.length > 0) {
-                        detailParts.push(addonNames.join(", "));
-                    }
-                    const detailStr = detailParts.join(" • ");
-
-                    addToCart({
-                        key: "custom-" + detailStr + "-" + sum.toFixed(2),
-                        name: "Monte o Seu Lanche",
-                        detail: detailStr,
-                        price: sum,
-                        icon: "🛠️"
-                    });
-                    closeBuilder();
-                    openCartDrawer();
-                });
-            }
-
-            // =================================================================
-            // COPIAR ENDEREÇO
-            // =================================================================
-            document.addEventListener("click", (e) => {
-                const copyTrigger = e.target.closest(".copy-address-trigger");
-                if (copyTrigger) {
-                    const parentBox = copyTrigger.closest(".location-box");
-                    const msgEl = parentBox ? parentBox.querySelector(".copy-address-msg") : null;
-
-                    const showMsg = (txt) => {
-                        if (!msgEl) return;
-                        msgEl.textContent = txt;
-                        window.setTimeout(() => {
-                            msgEl.textContent = "";
-                        }, 3000);
-                    };
-
-                    const temp = document.createElement("textarea");
-                    temp.value = FULL_ADDRESS;
-                    temp.setAttribute("readonly", "");
-                    temp.style.position = "fixed";
-                    temp.style.opacity = "0";
-                    document.body.appendChild(temp);
-                    temp.select();
-
-                    try {
-                        const ok = document.execCommand("copy");
-                        showMsg(ok ? "Endereço copiado!" : "Copie o endereço exibido.");
-                    } catch (err) {
-                        showMsg("Copie o endereço exibido.");
-                    } finally {
-                        document.body.removeChild(temp);
-                    }
-                }
+            });
+            builderModal.addEventListener("click", (ev) => {
+                if (ev.target === builderModal) builderModal.classList.remove("open");
             });
 
-            // Inicializa estado do carrinho
-            renderCart();
-            calculateBuilderPrice();
+            document.getElementById("confirm-builder-cart-btn").addEventListener("click", () => {
+                const { total, extras } = updateBuilderTotal();
+                const extrasPart = extras.length > 0 ? " • " + extras.join(", ") : "";
+                const customName = `Monte o Seu (${selectedPao}, ${selectedBlend}, ${selectedQueijo}${extrasPart})`;
+                const customId = `custom-${customName}-${total.toFixed(2)}`;
+                addToCart(
+                    customId,
+                    customName,
+                    total,
+                    "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=200&q=75"
+                );
+                builderModal.classList.remove("open");
+            });
+
+            // =================================================================
+            // SELO AUTOMÁTICO ABERTO/FECHADO (17H - 23H) + COPIAR ENDEREÇO
+            // =================================================================
+            const statusPill = document.getElementById("store-status-pill");
+            const statusLabel = document.getElementById("store-status-label");
+
+            function syncStoreStatus() {
+                if (!statusPill || !statusLabel) return;
+                const now = new Date();
+                const mins = now.getHours() * 60 + now.getMinutes();
+                const isOpen = mins >= 17 * 60 && mins < 23 * 60;
+                statusPill.classList.toggle("open", isOpen);
+                statusPill.classList.toggle("closed", !isOpen);
+                statusLabel.textContent = isOpen ? "Aberto agora • Fecha às 23h" : "Fechado • Abre às 17h";
+            }
+
+            syncStoreStatus();
+            setInterval(syncStoreStatus, 60000);
+
+            const copyAddressBtn = document.getElementById("copy-address-btn");
+            const addressStatus = document.getElementById("address-copy-status");
+
+            if (copyAddressBtn && addressStatus) {
+                copyAddressBtn.addEventListener("click", () => {
+                    const helper = document.createElement("textarea");
+                    helper.value = STORE_ADDRESS;
+                    helper.setAttribute("readonly", "");
+                    helper.style.position = "fixed";
+                    helper.style.opacity = "0";
+                    document.body.appendChild(helper);
+                    helper.select();
+                    try {
+                        document.execCommand("copy");
+                        addressStatus.textContent = "Endereço copiado!";
+                    } catch (e) {
+                        addressStatus.textContent = "Copie: " + STORE_ADDRESS;
+                    } finally {
+                        document.body.removeChild(helper);
+                    }
+                    setTimeout(() => {
+                        addressStatus.textContent = "";
+                    }, 2500);
+                });
+            }
+
+            updateCartDisplay();
+            updateBuilderTotal();
         })();
     </script>
 </body>
